@@ -1,0 +1,21 @@
+**Log on to codeastro.com for more projects!**
+
+**Database Name: Findfe**
+
+**Developed by Rahul Shewale**
+
+**Recommended PHP Version 7.4.12**
+
+
+Remember: Do not change the project's folder name without updating $config['base_url']
+
+
+**mitra Login Details** 
+
+Username: mitra
+Password: mitra
+
+**Customer Login Details**
+
+Username: taylor
+Password: password
