@@ -17,7 +17,7 @@ class lihatstok extends CI_Controller
         }
 
         $this->load->model('mitra_model');
-        $this->load->model('Store_model');
+        $this->load->model('store_model');
         $this->load->model('Menu_model');
         $this->load->model('User_model');
         $this->load->model('Order_model');
@@ -25,8 +25,9 @@ class lihatstok extends CI_Controller
     }
     public function index()
     {
-        $data['countStore'] = $this->Store_model->countStore();
+        $data['countstore'] = $this->store_model->countstore();
         $data['countkopi'] = $this->Menu_model->countkopi();
+        $data['countstock'] = $this->Menu_model->countstock();
         $data['countUser'] = $this->User_model->countUser();
         $data['countOrders'] = $this->Order_model->countOrders();
         $data['countCategory'] = $this->Category_model->countCategory();
@@ -55,7 +56,7 @@ class lihatstok extends CI_Controller
     {
         $kopiReport = $this->mitra_model->kopiReport();
         $data['kopiReport'] = $kopiReport;
-        $this->load->view('front/reports/kopi_report', $data);
+        $this->load->view('front/reports/Store_report', $data);
     }
 
 
@@ -68,5 +69,78 @@ class lihatstok extends CI_Controller
         $this->load->view('front/partials/header');
         $this->load->view('front/reports/res_report', $data);
         $this->load->view('front/partials/footer');
+    }
+    public function create_menu()
+    {
+
+        $this->load->helper('common_helper');
+        $this->load->model('Store_model');
+        $kopi = $this->store_model->getkopis();
+
+        $config['upload_path']          = './public/uploads/kopiesh/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        //$config['encrypt_name']         = true;
+
+        $this->load->library('upload', $config);
+
+        $this->load->model('Menu_model');
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
+        $this->form_validation->set_rules('name', 'kopi name', 'trim|required');
+        $this->form_validation->set_rules('about', 'About', 'trim|required');
+        $this->form_validation->set_rules('stock', 'stock', 'trim|required');
+        $this->form_validation->set_rules('rname', 'toko name', 'trim|required');
+
+
+        if ($this->form_validation->run() == true) {
+
+            if (!empty($_FILES['image']['name'])) {
+                //image is selected
+                if ($this->upload->do_upload('image')) {
+                    //file uploaded suceessfully
+                    $data = $this->upload->data();
+                    //resizing image
+                    resizeImage($config['upload_path'] . $data['file_name'], $config['upload_path'] . 'thumb/' . $data['file_name'], 300, 270);
+
+                    resizeImage($config['upload_path'] . $data['file_name'], $config['upload_path'] . 'front_thumb/' . $data['file_name'], 1120, 270);
+
+
+                    $formArray['img'] = $data['file_name'];
+                    $formArray['name'] = $this->input->post('name');
+                    $formArray['about'] = $this->input->post('about');
+                    $formArray['stock'] = $this->input->post('stock');
+                    $formArray['r_id'] = $this->input->post('rname');
+
+                    $this->Menu_model->create($formArray);
+
+                    $this->session->set_flashdata('Store_success', 'Menu added successfully');
+                    redirect(base_url() . 'front/lihatstock/index');
+                } else {
+                    //we got some errors
+                    $error = $this->upload->display_errors("<p class='invalid-feedback'>", "</p>");
+                    $data['errorImageUpload'] = $error;
+                    $data['kopis'] = $kopi;
+                    $this->load->view('front/partials/header');
+                    $this->load->view('front/addstock', $data);
+                    $this->load->view('front/partials/footer');
+                }
+            } else {
+                //if no image is selcted we will add res data without image
+                $formArray['name'] = $this->input->post('name');
+                $formArray['about'] = $this->input->post('about');
+                $formArray['stock'] = $this->input->post('stock');
+                $formArray['r_id'] = $this->input->post('rname');
+
+                $this->Menu_model->create($formArray);
+
+                $this->session->set_flashdata('Store_success', 'kopi added successfully');
+                redirect(base_url() . 'front/lihatstock/index');
+            }
+        } else {
+            $Store_data['kopis'] = $kopi;
+            $this->load->view('front/partials/header');
+            $this->load->view('front/addstock', $Store_data);
+            $this->load->view('front/partials/footer');
+        }
     }
 }

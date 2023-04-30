@@ -1,67 +1,32 @@
 <div class="conatiner">
-    <form id="myForm" action="<?php echo base_url() . 'mitra/menu/edit/' . $kopi['d_id']; ?>" method="POST" class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
+    <form id="myForm" action="<?php echo base_url() . 'editstok' . $kopi['d_id']; ?>" method="POST" class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
         <h3 class="mb-3 text-center">Edit kopi "<?php echo $kopi['name']; ?>"</h3>
         <div class="form-group">
-            <label class="control-label">Select Mitra</label>
+            <label class="control-label">Edit Kopi</label>
             <select name="rname" id="resname" class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : ''; ?>">
-                <option>--Select Mitra--</option>
+                <option>--EditKopi--</option>
                 <?php
-                if (!empty($stores)) {
-                    foreach ($stores as $store) {
+                if (!empty($kopis)) {
+                    foreach ($kopis as $$kopi) {
                 ?>
-                        <option value="<?php echo $store['r_id']; ?>">
-                            <?php echo set_select('resname', $store['name']); ?>
-                            <?php echo $store['name']; ?>
+                        <option value="<?php echo $kopi['r_id']; ?>">
+                            <?php echo set_select('resname'); ?>
+                            <?php echo $kopi['name']; ?>
                         </option>
                 <?php }
                 }
                 ?>
             </select>
-            <span></span>
             <?php echo form_error('rname'); ?>
+            <span></span>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="name">kopi Name</label>
-                    <input type="text" class="form-control my-2 
-                    <?php echo (form_error('name') != "") ? 'is-invalid' : ''; ?>" name="name" id="name" placeholder="Enter kopi name" value="<?php echo set_value('name', $kopi['name']); ?>">
-                    <span></span>
-                    <?php echo form_error('name'); ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="Price" class="form-control my-2
-                    <?php echo (form_error('price') != "") ? 'is-invalid' : ''; ?>" id="price" name="price" placeholder="Enter Price" value="<?php echo set_value('price', $kopi['price']); ?>">
-                    <span></span>
-                    <?php echo form_error('price'); ?>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="about">About</label>
-                    <input type="text" class="form-control my-2
-                    <?php echo (form_error('about') != "") ? 'is-invalid' : ''; ?>" id="about" name="about" placeholder="About" value="<?php echo set_value('about', $kopi['about']); ?>">
-                    <span></span>
-                    <?php echo form_error('about'); ?>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="img">menu Image</label>
-                    <input type="file" id="image" name="image" placeholder="Enter Image" class="form-control my-2
-                    <?php echo (!empty($errorImageUpload))  ? 'is-invalid' : ''; ?>">
-                    <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : ''; ?>
-
-                    <?php if ($kopi['img'] != "" && file_exists('./public/uploads/kopiesh/thumb/' . $kopi['img'])) { ?>
-
-                        <img src="<?php echo base_url() . 'public/uploads/kopiesh/thumb/' . $kopi['img']; ?>">
-
-                    <?php } else { ?>
-                        <img width="300" src="<?php echo base_url() . 'public/uploads/no-image.png' ?>">
-                    <?php } ?>
+                    <label for="stock">Qty</label>
+                    <input type="number" class="form-control my-2
+                    <?php echo (form_error('stock') != "") ? 'is-invalid' : ''; ?>" id="stock" name="stock" placeholder="Enter stock $" value="<?php echo set_value('stock'); ?>">
+                    <?php echo form_error('stock'); ?>
                     <span></span>
                 </div>
             </div>
