@@ -50,7 +50,7 @@
             </div>
             <div class="status text-center text-danger font-weight-bold my-2"></div>
             <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-            <p>Already registered? <a href="<?php echo base_url() . 'login/index'; ?>">Login Now!</a></p>
+            <p>Already registered? <a href="<?php echo base_url() . 'mitra/login'; ?>">Login Now!</a></p>
         </form>
     </div>
 

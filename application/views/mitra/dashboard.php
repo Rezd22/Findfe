@@ -111,7 +111,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 mt-3">
+        <!-- <div class="col-md-6 mt-3">
             <div class="row">
                 <div class="col-md-12">
                     <h2>toko Report</h2>
@@ -184,6 +184,6 @@
                                 echo base_url() . 'mitra/home/generate_pdf/' . $id; ?>" class="btn btn-success mb-3">Download Report</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

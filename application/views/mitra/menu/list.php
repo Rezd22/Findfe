@@ -34,7 +34,7 @@
                                 <td><?php echo $kopi['r_id']; ?></td>
                                 <td><?php echo $kopi['name']; ?></td>
                                 <td><?php echo $kopi['about']; ?></td>
-                                <td><?php echo "$" . $kopi['price']; ?></td>
+                                <td><?php echo "Rp" . $kopi['price']; ?></td>
                                 <td>
                                     <a href="<?php echo base_url() . 'mitra/menu/edit/' . $kopi['d_id']; ?>" class="btn btn-info mb-1"><i class="fas fa-edit mr-1"></i>Edit</a>
 

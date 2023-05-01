@@ -47,13 +47,28 @@ class Menu_model extends CI_Model
         return $kopi;
     }
 
+    public function getkopieshall()
+    {
+        $kopi = $this->db->get('kopiesh')->result_array();
+        return $kopi;
+    }
+
     public function countstock()
     {
         $this->db->select('stock');
         $query = $this->db->get('kopiesh');
         return $query->result_array();
-    }   
-
+    }
+    public function editstock($id, $stock)
+    {
+        $this->db->where('d_id', $id);
+        $this->db->set('stock', $stock);
+        $this->db->update('kopiesh');
+    }
+    public function addstock($formArray)
+    {
+        $this->db->insert('kopiesh', $formArray);
+    }
 
 
     // p

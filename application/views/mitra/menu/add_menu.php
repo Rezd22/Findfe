@@ -32,7 +32,7 @@
                 <div class="form-group">
                     <label for="price">Price</label>
                     <input type="number" class="form-control my-2
-                    <?php echo (form_error('price') != "") ? 'is-invalid' : ''; ?>" id="price" name="price" placeholder="Enter Price $" value="<?php echo set_value('price'); ?>">
+                    <?php echo (form_error('price') != "") ? 'is-invalid' : ''; ?>" id="price" name="price" placeholder="Enter Price" value="<?php echo set_value('price'); ?>">
                     <?php echo form_error('price'); ?>
                     <span></span>
                 </div>

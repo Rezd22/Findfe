@@ -20,12 +20,12 @@
                                 <tr>
                                     <td>
                                         <?php $image = $item['image']; ?>
-                                        <img class="" width="100" src="<?php echo base_url() . 'public/uploads/kopiesh/thumb/' . $image; ?>">
+                                        <img class="" width="100" src="<?php echo base_url() . 'public/uploads/kopiesh/' . $image; ?>">
                                     </td>
                                     <td><?php echo $item['name']; ?></td>
-                                    <td><?php echo '$' . $item['price']; ?></td>
+                                    <td><?php echo 'Rp' . $item['price']; ?></td>
                                     <td><?php echo $item['qty']; ?></td>
-                                    <td><?php echo '$' . $item['subtotal']; ?></td>
+                                    <td><?php echo 'Rp' . $item['subtotal']; ?></td>
                                 </tr>
                             <?php } ?>
                         <?php } else { ?>
@@ -40,7 +40,7 @@
                         <tr>
                             <td colspan="4"></td>
                             <?php if ($this->cart->total_items() > 0) { ?>
-                                <td class="text-left">Total: <b><?php echo '$' . $this->cart->total(); ?></b></td>
+                                <td class="text-left">Total: <b><?php echo 'Rp' . $this->cart->total(); ?></b></td>
                             <?php } ?>
                         </tr>
                     </tfoot>

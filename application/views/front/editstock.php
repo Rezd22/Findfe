@@ -1,16 +1,16 @@
 <div class="conatiner">
-    <form id="myForm" action="<?php echo base_url() . 'editstok' . $kopi['d_id']; ?>" method="POST" class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
-        <h3 class="mb-3 text-center">Edit kopi "<?php echo $kopi['name']; ?>"</h3>
+    <form action="<?php echo base_url() . 'editstock/editstock'; ?>" method="POST" id="myForm" name="myForm" class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
+        <h3 class="mb-3 text-center">Edit Stock Items</h3>
         <div class="form-group">
-            <label class="control-label">Edit Kopi</label>
-            <select name="rname" id="resname" class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : ''; ?>">
-                <option>--EditKopi--</option>
+            <label class="control-label">Select Kopi</label>
+            <select name="rname" id="resname" class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : ''; ?>" required>
+                <option>--Select Kopi--</option>
                 <?php
                 if (!empty($kopis)) {
-                    foreach ($kopis as $$kopi) {
+                    foreach ($kopis as $kopi) {
                 ?>
-                        <option value="<?php echo $kopi['r_id']; ?>">
-                            <?php echo set_select('resname'); ?>
+                        <option value="<?php echo $kopi['d_id']; ?>">
+                            <?php echo set_select('name'); ?>
                             <?php echo $kopi['name']; ?>
                         </option>
                 <?php }
@@ -25,23 +25,20 @@
                 <div class="form-group">
                     <label for="stock">Qty</label>
                     <input type="number" class="form-control my-2
-                    <?php echo (form_error('stock') != "") ? 'is-invalid' : ''; ?>" id="stock" name="stock" placeholder="Enter stock $" value="<?php echo set_value('stock'); ?>">
+                    <?php echo (form_error('stock') != "") ? 'is-invalid' : ''; ?>" id="stock" name="stock" placeholder="Enter stock " value="<?php echo set_value('stock'); ?>">
                     <?php echo form_error('stock'); ?>
                     <span></span>
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary ml-2">Make Changes</button>
-        <a href="<?php echo base_url() . 'mitra/menu/index' ?>" class="btn btn-secondary">Back</a>
+        <button type="submit" class="btn btn-primary ml-2">Submit</button>
+        <a href="<?php echo base_url() . 'lihatstock' ?>" class="btn btn-secondary">Back</a>
     </form>
 </div>
 <script>
     const form = document.getElementById('myForm');
     const resname = document.getElementById("resname");
-    const kopiname = document.getElementById("name");
-    const price = document.getElementById("price");
-    const about = document.getElementById("about");
-    const image = document.getElementById("image");
+    const kopiname = document.getElementById("stock");
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -56,7 +53,7 @@
 
     const successMsg = () => {
         let formCon = document.getElementsByClassName('form-control');
-        var count = formCon.length - 2;
+        var count = formCon.length - 1;
         for (var i = 0; i < formCon.length; i++) {
             if (formCon[i].className === "form-control my-2 success") {
                 var sRate = 0 + i;
@@ -70,12 +67,10 @@
     const validate = () => {
         const resnameVal = resname.value.trim();
         const kopinameVal = kopiname.value.trim();
-        const priceVal = price.value.trim();
-        const aboutVal = about.value.trim();
-        const imageVal = image.value.trim();
+        const stockVal = stock.value.trim();
 
-        if (resnameVal === "--Select Mitra--") {
-            setErrorMsg(resname, 'select Mitra name');
+        if (resnameVal === "--Select toko--") {
+            setErrorMsg(resname, 'select toko name');
         } else {
             setSuccessMsg(resname);
         }
@@ -84,17 +79,11 @@
         } else {
             setSuccessMsg(kopiname);
         }
-        if (priceVal === "") {
-            setErrorMsg(price, 'price cannot be blank');
+        if (stockVal === "") {
+            setErrorMsg(stock, 'stock cannot be blank');
         } else {
-            setSuccessMsg(price);
+            setSuccessMsg(stock);
         }
-        if (aboutVal === "") {
-            setErrorMsg(about, 'about cannot be blank');
-        } else {
-            setSuccessMsg(about);
-        }
-
         successMsg();
 
     }

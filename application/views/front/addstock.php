@@ -1,44 +1,36 @@
 <div class="conatiner">
-    <form action="<?php echo base_url() . 'add_stock/create'; ?>" method="POST" id="myForm" name="myForm" class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
-        <h3 class="mb-3 text-center">Add Stock Items</h3>
-        <div class="form-group">
-            <label class="control-label">Select Kopi</label>
-            <select name="rname" id="resname" class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : ''; ?>">
-                <option>--Select Kopi--</option>
-                <?php
-                if (!empty($kopis)) {
-                    foreach ($kopis as $$kopi) {
-                ?>
-                        <option value="<?php echo $kopi['r_id']; ?>">
-                            <?php echo set_select('resname'); ?>
-                            <?php echo $kopi['name']; ?>
-                        </option>
-                <?php }
-                }
-                ?>
-            </select>
-            <?php echo form_error('rname'); ?>
-            <span></span>
-        </div>
+    <form id="myForm" action="<?php echo base_url() . 'addstock/addstock' ?>" method="POST" class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
+        <h3 class="mb-3 text-center">Add kopi </h3>
         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="stock">name</label>
+                    <input type="name" class="form-control my-2
+                    <?php echo (form_error('stock') != "") ? 'is-invalid' : ''; ?>" id="stock" name="stock" placeholder="Enter stock " value="<?php echo set_value('stock'); ?>" required>
+                    <?php echo form_error('stock'); ?>
+                    <span></span>
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="stock">Qty</label>
                     <input type="number" class="form-control my-2
-                    <?php echo (form_error('stock') != "") ? 'is-invalid' : ''; ?>" id="stock" name="stock" placeholder="Enter stock $" value="<?php echo set_value('stock'); ?>">
+                    <?php echo (form_error('stock') != "") ? 'is-invalid' : ''; ?>" id="stock" name="stock" placeholder="Enter stock " value="<?php echo set_value('stock'); ?>" required>
                     <?php echo form_error('stock'); ?>
                     <span></span>
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary ml-2">Submit</button>
-        <a href="<?php echo base_url() . 'lihatstock' ?>" class="btn btn-secondary">Back</a>
+        <button type="submit" class="btn btn-primary ml-2">Make Changes</button>
+        <a href="<?php echo base_url() . 'lihatstok' ?>" class="btn btn-secondary">Back</a>
     </form>
 </div>
 <script>
     const form = document.getElementById('myForm');
     const resname = document.getElementById("resname");
     const kopiname = document.getElementById("name");
+    const price = document.getElementById("price");
+    const about = document.getElementById("about");
     const image = document.getElementById("image");
 
     form.addEventListener('submit', (event) => {
@@ -52,18 +44,9 @@
         }
     }
 
-    const isImage = (imageVal) => {
-        fType = imageVal.substring(imageVal.indexOf('.') + 1);
-        if (fType === "gif" || fType === "jpg" || fType === "png" || fType === "jpeg") {
-            return "pass";
-        } else {
-            return "fail";
-        }
-    }
-
     const successMsg = () => {
         let formCon = document.getElementsByClassName('form-control');
-        var count = formCon.length - 1;
+        var count = formCon.length - 2;
         for (var i = 0; i < formCon.length; i++) {
             if (formCon[i].className === "form-control my-2 success") {
                 var sRate = 0 + i;
@@ -77,12 +60,12 @@
     const validate = () => {
         const resnameVal = resname.value.trim();
         const kopinameVal = kopiname.value.trim();
-        const stockVal = stock.value.trim();
+        const priceVal = price.value.trim();
         const aboutVal = about.value.trim();
         const imageVal = image.value.trim();
 
-        if (resnameVal === "--Select toko--") {
-            setErrorMsg(resname, 'select toko name');
+        if (resnameVal === "--Select Mitra--") {
+            setErrorMsg(resname, 'select Mitra name');
         } else {
             setSuccessMsg(resname);
         }
@@ -91,22 +74,15 @@
         } else {
             setSuccessMsg(kopiname);
         }
-        if (stockVal === "") {
-            setErrorMsg(stock, 'stock cannot be blank');
+        if (priceVal === "") {
+            setErrorMsg(price, 'price cannot be blank');
         } else {
-            setSuccessMsg(stock);
+            setSuccessMsg(price);
         }
         if (aboutVal === "") {
-            setErrorMsg(about, 'about name cannot be empty');
+            setErrorMsg(about, 'about cannot be blank');
         } else {
             setSuccessMsg(about);
-        }
-        if (imageVal == "") {
-            setErrorMsg(image, 'select image');
-        } else if (isImage(imageVal) === "fail") {
-            setErrorMsg(image, 'file format is not valid');
-        } else {
-            setSuccessMsg(image);
         }
 
         successMsg();

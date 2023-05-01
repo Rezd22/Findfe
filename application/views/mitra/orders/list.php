@@ -38,7 +38,7 @@
                                 <td><?php echo $order['username']; ?></td>
                                 <td><?php echo $order['d_name']; ?></td>
                                 <td><?php echo $order['quantity']; ?></td>
-                                <td><?php echo "$" . $order['price']; ?></td>
+                                <td><?php echo "Rp" . $order['price']; ?></td>
                                 <td><?php echo $order['address']; ?></td>
 
 

@@ -57,12 +57,12 @@
                                 <td><?php echo $res['name']; ?></td>
                                 <td><?php echo $order['d_name']; ?></td>
                                 <td><?php echo $order['quantity']; ?></td>
-                                <td><?php echo '$' . $kopi['price']; ?></td>
+                                <td><?php echo 'Rp' . $kopi['price']; ?></td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
                                 <td class="font-weight-bold">Total</td>
-                                <td class="font-weight-bold"><?php echo '$' . $order['price'] ?></td>
+                                <td class="font-weight-bold"><?php echo 'Rp' . $order['price'] ?></td>
                             </tr>
                         </tbody>
                     </table>

@@ -25,7 +25,7 @@
             echo "<div class='alert alert-danger m-3 mx-auto'>" . $this->session->flashdata('msg') . "</div>";
         }
         ?>
-       
+
         <h4 class="pb-4 border-bottom text-center">Login Ke Account Anda</h4>
         <form action="<?php echo base_url() . 'login/authenticate'; ?>" name="loginform" id="loginform" method="POST">
             <div class="form-group">

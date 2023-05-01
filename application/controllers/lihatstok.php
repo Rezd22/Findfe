@@ -16,6 +16,7 @@ class lihatstok extends CI_Controller
             redirect(base_url() . 'login/');
         }
 
+        $this->load->helper('date');
         $this->load->model('mitra_model');
         $this->load->model('store_model');
         $this->load->model('Menu_model');
@@ -27,6 +28,7 @@ class lihatstok extends CI_Controller
     {
         $data['countstore'] = $this->store_model->countstore();
         $data['countkopi'] = $this->Menu_model->countkopi();
+        $data['kopieshall'] = $this->Menu_model->getkopieshall();
         $data['countstock'] = $this->Menu_model->countstock();
         $data['countUser'] = $this->User_model->countUser();
         $data['countOrders'] = $this->Order_model->countOrders();
@@ -34,6 +36,7 @@ class lihatstok extends CI_Controller
         $data['countPendingOrders'] = $this->Order_model->countPendingOrders();
         $data['countDeliveredOrders'] = $this->Order_model->countDeliveredOrders();
         $data['countRejectedOrders'] = $this->Order_model->countRejectedOrders();
+        $data['date'] = date('Y-m-d H:i:s', now());
 
         $resReport = $this->mitra_model->getResReport();
         $data['resReport'] = $resReport;
@@ -121,7 +124,7 @@ class lihatstok extends CI_Controller
                     $data['errorImageUpload'] = $error;
                     $data['kopis'] = $kopi;
                     $this->load->view('front/partials/header');
-                    $this->load->view('front/addstock', $data);
+                    $this->load->view('front/editstock', $data);
                     $this->load->view('front/partials/footer');
                 }
             } else {
@@ -139,7 +142,7 @@ class lihatstok extends CI_Controller
         } else {
             $Store_data['kopis'] = $kopi;
             $this->load->view('front/partials/header');
-            $this->load->view('front/addstock', $Store_data);
+            $this->load->view('front/editstock', $Store_data);
             $this->load->view('front/partials/footer');
         }
     }

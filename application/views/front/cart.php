@@ -35,13 +35,13 @@
                         <tr>
                             <td>
                                 <?php $image = $item['image']; ?>
-                                <img class="" width="70" src="<?php echo base_url() . 'public/uploads/kopiesh/thumb/' . $image; ?>">
+                                <img class="" width="70" src="<?php echo base_url() . 'public/uploads/kopiesh/' . $image; ?>">
                             </td>
                             <td><?php echo $item['name']; ?></td>
-                            <td><?php echo '$' . $item['price']; ?></td>
+                            <td><?php echo 'Rp' . $item['price']; ?></td>
                             <td><input type="number" class="form-control text-center" value="<?php echo $item['qty']; ?>" onChange="updateCartItem(this, '<?php echo $item['rowid'] ?>')">
                             </td>
-                            <td><?php echo '$' . $item['subtotal']; ?></td>
+                            <td><?php echo 'Rp' . $item['subtotal']; ?></td>
                             <td>
                                 <a href="<?php echo base_url() . 'cart/removeItem/' . $item['rowid']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fas fa-trash-alt"></i></a>
                             </td>
@@ -60,7 +60,7 @@
                     <td><a href="<?php echo base_url() . 'toko' ?>" class="btn btn-sm btn-warning"><i class="fas fa-angle-left"></i> Continue Ordering</a></td>
                     <td colspan="3"></td>
                     <?php if ($this->cart->total_items() > 0) { ?>
-                        <td class="text-left">Grand Total: <b><?php echo '$' . $this->cart->total(); ?></b></td>
+                        <td class="text-left">Grand Total: <b><?php echo 'Rp' . $this->cart->total(); ?></b></td>
                         <td><a href="<?php echo base_url() . 'checkout'; ?>" class="btn btn-sm btn-success btn-block">Checkout <i class="fas fa-angle-right"></i></a></td>
                     <?php } ?>
                 </tr>

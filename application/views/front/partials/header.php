@@ -20,7 +20,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?php echo base_url() . 'home'; ?>"><img src="public\uploads\Asset 1.png" alt="Logo" style="width:20px;height:30px;"> FindFe</a>
+            <a class="navbar-brand" href="<?php echo base_url() . 'home/index'; ?>"><img src="public\uploads\Asset 1.png" alt="Logo" style="width:20px;height:30px;"> FindFe</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarRes">
                 <span class="navbar-toggler-icon"></span>
             </button>

@@ -103,7 +103,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <h4 class="card-title"><?php echo $kopi['name']; ?></h4>
-                                            <h4 class="text-muted"><b>$<?php echo $kopi['price']; ?></b></h4>
+                                            <h4 class="text-muted"><b>Rp<?php echo $kopi['price']; ?></b></h4>
                                         </div>
                                         <p class="card-text"><?php echo $kopi['about']; ?></p>
                                         <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Tambahkan ke
@@ -121,7 +121,7 @@
 
                 </div>
             </div>
-            <!-- </table> -->
+
         </div>
     </div>
 </div>
