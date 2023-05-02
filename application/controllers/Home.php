@@ -36,9 +36,9 @@ class Home extends CI_Controller
 			} else {
 				$this->session->set_flashdata("msg", "mail is not sent, try again.");
 			}
-			redirect(base_url() . 'home/index');
+			redirect(base_url() . 'home');
 		} else {
-			redirect(base_url() . 'home/index');
+			redirect(base_url() . 'home');
 		}
 	}
 }

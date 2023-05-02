@@ -70,84 +70,84 @@ class Home extends CI_Controller
         $this->load->view('mitra/reports/res_report', $data);
         $this->load->view('mitra/partials/footer');
     }
-    public function generate_pdf($id)
-    {
-        //load pdf library
-        $this->load->library('Pdf');
+    // public function generate_pdf($id)
+    // {
+    //     //load pdf library
+    //     $this->load->library('Pdf');
 
-        $pdf = new Pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-        // set document information
-        $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('www.Findfe.com');
-        $pdf->SetTitle('Report');
-        $pdf->SetSubject('Report generated using Codeigniter and TCPDF');
-        $pdf->SetKeywords('TCPDF, PDF, MySQL, Codeigniter');
+    //     $pdf = new Pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    //     // set document information
+    //     $pdf->SetCreator(PDF_CREATOR);
+    //     $pdf->SetAuthor('www.Findfe.com');
+    //     $pdf->SetTitle('Report');
+    //     $pdf->SetSubject('Report generated using Codeigniter and TCPDF');
+    //     $pdf->SetKeywords('TCPDF, PDF, MySQL, Codeigniter');
 
-        // set default header data
-        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+    //     // set default header data
+    //     $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
 
-        // set header and footer fonts
-        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-        $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+    //     // set header and footer fonts
+    //     $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+    //     $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
-        // set default monospaced font
-        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+    //     // set default monospaced font
+    //     $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-        // set margins
-        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+    //     // set margins
+    //     $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+    //     $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+    //     $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
-        // set auto page breaks
-        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+    //     // set auto page breaks
+    //     $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
-        // set image scale factor
-        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+    //     // set image scale factor
+    //     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-        // set font
-        $pdf->SetFont('times', 'BI', 12);
+    //     // set font
+    //     $pdf->SetFont('times', 'BI', 12);
 
-        // ---------------------------------------------------------
-
-
-        //Generate HTML table data from MySQL - start
-        $template = array(
-            'table_open' => '<table border="1" cellpadding="2" cellspacing="1">'
-        );
-
-        $this->table->set_template($template);
-
-        if ($id == 1) {
-            $resReport = $this->mitra_model->getResReport();
-            $this->table->set_heading('Id', 'toko', 'Total-sales');
-            foreach ($resReport as $sf) :
-                $this->table->add_row($sf->r_id, $sf->name, $sf->price);
-            endforeach;
-        } else if ($id == 2) {
-            $this->table->set_heading('Id', 'kopi name', 'total number of times kopi ordered');
-            $kopiReport = $this->mitra_model->kopiReport();
-            foreach ($kopiReport as $sf) :
-                $this->table->add_row($sf->d_id, $sf->d_name, $sf->qty);
-            endforeach;
-        } else {
-            redirect(base_url() . 'mitra/home');
-        }
+    //     // ---------------------------------------------------------
 
 
+    //     //Generate HTML table data from MySQL - start
+    //     $template = array(
+    //         'table_open' => '<table border="1" cellpadding="2" cellspacing="1">'
+    //     );
 
-        $html = $this->table->generate();
-        //Generate HTML table data from MySQL - end
+    //     $this->table->set_template($template);
 
-        // add a page
-        $pdf->AddPage();
+    //     if ($id == 1) {
+    //         $resReport = $this->mitra_model->getResReport();
+    //         $this->table->set_heading('Id', 'toko', 'Total-sales');
+    //         foreach ($resReport as $sf) :
+    //             $this->table->add_row($sf->r_id, $sf->name, $sf->price);
+    //         endforeach;
+    //     } else if ($id == 2) {
+    //         $this->table->set_heading('Id', 'kopi name', 'total number of times kopi ordered');
+    //         $kopiReport = $this->mitra_model->kopiReport();
+    //         foreach ($kopiReport as $sf) :
+    //             $this->table->add_row($sf->d_id, $sf->d_name, $sf->qty);
+    //         endforeach;
+    //     } else {
+    //         redirect(base_url() . 'mitra/home');
+    //     }
 
-        // output the HTML content
-        $pdf->writeHTML($html, true, false, true, false, '');
 
-        // reset pointer to the last page
-        $pdf->lastPage();
 
-        //Close and output PDF document
-        $pdf->Output(md5(time()) . '.pdf', 'I');
-    }
+        // $html = $this->table->generate();
+        // //Generate HTML table data from MySQL - end
+
+        // // add a page
+        // $pdf->AddPage();
+
+        // // output the HTML content
+        // $pdf->writeHTML($html, true, false, true, false, '');
+
+        // // reset pointer to the last page
+        // $pdf->lastPage();
+
+        // //Close and output PDF document
+        // $pdf->Output(md5(time()) . '.pdf', 'I');
+    // }
 }

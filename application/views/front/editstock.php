@@ -32,7 +32,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary ml-2">Submit</button>
-        <a href="<?php echo base_url() . 'lihatstock' ?>" class="btn btn-secondary">Back</a>
+        <a href="<?php echo base_url() . 'home' ?>" class="btn btn-secondary">Back</a>
     </form>
 </div>
 <script>

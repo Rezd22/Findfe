@@ -17,7 +17,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?php echo base_url() . 'mitra/home'; ?>"><img src="public\uploads\Asset 1.png" alt="Logo" style="width:20px;height:30px;">Mitra Panel</a>
+            <a class="navbar-brand" href="<?php echo base_url() . 'mitra/home'; ?>">Mitra Panel</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarRes">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,8 +48,8 @@
                             Category
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url() . 'mitra/category/'; ?>">Buat
-                                Categories</a>
+                            <a class="dropdown-item" href="<?php echo base_url() . 'mitra/category/'; ?>">Kelola
+                                Category</a>
                             <a class="dropdown-item" href="<?php echo base_url() . 'mitra/category/create_category'; ?>">Buat
                                 Category</a>
                         </div>
