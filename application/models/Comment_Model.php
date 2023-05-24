@@ -1,21 +1,42 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 class Comment_model extends CI_Model
 {
-    public function create_comment($data)
+    public function get_comments()
     {
-        $this->db->insert('comments', $data);
-        return $this->db->insert_id();
+        return $this->db->where('parent_id', NULL)->get('comments')->result_array();
     }
 
-    public function get_comments_by_post($post_id)
+    public function get_replies($comment_id)
     {
-        $this->db->where('post_id', $post_id);
-        $this->db->order_by('created_at', 'DESC');
-        return $this->db->get('comments')->result_array();
+        return $this->db->where('parent_id', $comment_id)->get('comments')->result_array();
     }
-    public function get_all_comments()
+
+    public function add_comment($content)
     {
-        $query = $this->db->query("SELECT * FROM comments");
-        return $query->result();
+        $data = array(
+            'content' => $content,
+            'created_at' => date('Y-m-d H:i:s')
+        );
+        $this->db->insert('comments', $data);
+    }
+
+    public function add_reply($parent_id, $content)
+    {
+        $data = array(
+            'parent_id' => $parent_id,
+            'content' => $content,
+            'created_at' => date('Y-m-d H:i:s')
+        );
+        $this->db->insert('comments', $data);
+    }
+    public function delete_comment($comment_id)
+    {
+        // Hapus komentar berdasarkan ID
+        $this->db->where('id', $comment_id)->delete('comments');
+
+        // Hapus juga balasan yang terkait dengan komentar yang dihapus
+        $this->db->where('parent_id', $comment_id)->delete('comments');
     }
 }

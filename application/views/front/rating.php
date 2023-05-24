@@ -11,8 +11,10 @@
 
 <body>
     <div class="container box">
+
         <h3 align="center">Rating in Findfe</h3>
         <br />
+        <hr class="hr hr-blurry" />
         <span id="r_list"></span>
     </div>
 </body>

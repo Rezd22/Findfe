@@ -1,72 +1,45 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
+// File: application/controllers/Comment.php
 class Comment extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('comment_model');
-        $this->load->library('form_validation');
+        $this->load->model('Comment_model');
     }
 
     public function index()
     {
-        // Get all comments
-        $comments = $this->comment_model->get_all_comments();
-
-        // Load view with comments data
-        $this->_load_view('front/comment', $comments);
-    }
-
-    public function create()
-    {
-        // Validation for form input
-        $this->form_validation->set_rules('content', 'Content', 'required');
-
-        if ($this->form_validation->run() == false) {
-            // Display error message if validation fails
-            $this->session->set_flashdata('error', validation_errors());
-        } else {
-            // Get comment data from form
-            $data = array(
-                'post_id' => $this->input->post('post_id'),
-                'user_id' => $this->session->userdata('user_id'),
-                'content' => $this->input->post('content'),
-                'created_at' => date('Y-m-d H:i:s')
-            );
-
-            // Save comment to database
-            $comment_id = $this->comment_model->create_comment($data);
-
-            if ($comment_id) {
-                $this->session->set_flashdata('success', 'Comment added successfully.');
-            } else {
-                $this->session->set_flashdata('error', 'Failed to add comment.');
-            }
-        }
-
-        // Redirect to previous page
-        redirect($this->input->server('HTTP_REFERER'));
-    }
-
-    public function show($post_id)
-    {
-        // Validation for post ID
-        if (!$post_id) {
-            show_404();
-        }
-
-        // Get comments by post ID
-        $comments = $this->comment_model->get_comments_by_post($post_id);
-
-        // Load view with comments data
-        $this->_load_view('front/comment', $comments);
-    }
-
-    // Private function to load a view with data
-    private function _load_view($view, $data)
-    {
+        $data['comments'] = $this->Comment_model->get_comments();
         $this->load->view('front/partials/header');
-        $this->load->view($view, $data);
+        $this->load->view('front/comment', $data);
         $this->load->view('front/partials/footer');
+    }
+
+    public function add_comment()
+    {
+        $content = $this->input->post('content');
+        $this->Comment_model->add_comment($content);
+        redirect('comment');
+    }
+
+    public function add_reply()
+    {
+        $comment_id = $this->input->post('comment_id');
+        $content = $this->input->post('content');
+        $this->Comment_model->add_reply($comment_id, $content);
+        redirect('comment');
+    }
+    public function delete_comment()
+    {
+        $comment_id = $this->input->post('comment_id');
+
+        // Hapus komentar dari database
+        $this->Comment_model->delete_comment($comment_id);
+
+        // Kirim respon JSON berhasil
+        $response = array('success' => true);
+        $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }
 }

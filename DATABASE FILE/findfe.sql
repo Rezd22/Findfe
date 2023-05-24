@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2023 at 04:05 AM
+-- Generation Time: May 24, 2023 at 08:17 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -64,20 +64,17 @@ CREATE TABLE `block_user` (
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
   `content` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id`, `post_id`, `user_id`, `content`, `created_at`) VALUES
-(1, NULL, NULL, 'ddd', '2023-05-17 06:30:41'),
-(2, NULL, NULL, 'sss', '2023-05-23 09:16:01'),
-(3, NULL, NULL, 'sss', '2023-05-23 09:16:03');
+INSERT INTO `comments` (`id`, `parent_id`, `content`, `created_at`) VALUES
+(6, NULL, 'keren', '2023-05-24 05:42:16');
 
 -- --------------------------------------------------------
 
@@ -300,8 +297,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `password`, `address`, `picture_url`) VALUES
 (35, 'Galang', 'Galangp', 'Prasanjaya', 'Prasanjayagalang22@gmail.com', '0812347088', '$2y$10$FSMjd3is2w8CiRhdicPrY.1MtFmF47iYjdp.kO/isHcwYR5azuKy6', 'Jl. Riau G. 1001 No. 105 Jember', ''),
-(36, 'User12345', 'User', 'User', 'Prasanjayagalang22@gmail.com', '0812347088', '$2y$10$udlbio.C7klkd8Rkk67LV.v..FkcIlj/kiXgrIBBXUZgHvs6Rclu6', 'Jl. Riau G. 1001 No. 105 Jember', ''),
-(37, 'Jojo1234', 'Jojo', 'Jojo', 'Prasanjayagalang22@gmail.com', '0812347088', '$2y$10$X/uYpBZNVGN44TFoKnaXO.bQjNcH.uKHyR.UOtW6crk.4kM7NggL6', 'Jl. Riau G. 1001 No. 105 Jember', '');
+(36, 'User12345', 'User', 'User', 'Prasanjayagalang22@gmail.com', '0812347088', '$2y$10$udlbio.C7klkd8Rkk67LV.v..FkcIlj/kiXgrIBBXUZgHvs6Rclu6', 'Jl. Riau G. 1001 No. 105 Jember', '');
 
 -- --------------------------------------------------------
 
@@ -359,7 +355,8 @@ ALTER TABLE `admin`
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `parent_id` (`parent_id`);
 
 --
 -- Indexes for table `kopiesh`
@@ -429,7 +426,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kopiesh`
@@ -472,6 +469,16 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_orders`
   MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `comments` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
