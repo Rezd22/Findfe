@@ -56,3 +56,12 @@ $route['users/report'] = 'mitra/home/usersReport';
 $route['orders/report'] = 'mitra/home/ordersReport';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['chat'] = 'Authenticate/login';
+$route['signup'] = 'Authenticate/signup';
+$route['insert'] = 'Authenticate/signupData';
+$route['search'] = 'Authenticate/loginData';
+$route['message'] = 'Message';
+$route['logout'] = 'Message/logout';
+$route['sent'] = 'Message/sendMessage';
+$route['getmessage'] = 'Message/getMessage';

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller
+class mitra extends CI_Controller
 {
 
     public function __construct()
@@ -16,9 +16,9 @@ class User extends CI_Controller
 
     public function index()
     {
-        $this->load->model('User_model');
-        $users = $this->User_model->getUsers();
-        $data['users'] = $users;
+        $this->load->model('mitra_model');
+        $mitra = $this->mitra_model->getUsers();
+        $data['users'] = $mitra;
         $this->load->view('mitra/partials/header');
         $this->load->view('mitra/user/list', $data);
         $this->load->view('mitra/partials/footer');
@@ -26,7 +26,7 @@ class User extends CI_Controller
     public function create_user()
     {
 
-        $this->load->model('User_model');
+        $this->load->model('mitra_model');
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
@@ -48,7 +48,7 @@ class User extends CI_Controller
             $formArray['address'] = $this->input->post('address');
 
 
-            $this->User_model->create($formArray);
+            $this->mitra_model->create($formArray);
 
             $this->session->set_flashdata('success', 'User added successfully');
             redirect(base_url() . 'mitra/user/index');
@@ -61,10 +61,10 @@ class User extends CI_Controller
 
     public function edit($id)
     {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($id);
+        $this->load->model('mitra_model');
+        $mitra = $this->mitra_model->getUser($id);
 
-        if (empty($user)) {
+        if (empty($mitra)) {
             $this->session->set_flashdata('error', 'User not found');
             redirect(base_url() . 'mitra/user/index');
         }
@@ -90,12 +90,12 @@ class User extends CI_Controller
             $formArray['address'] = $this->input->post('address');
 
 
-            $this->User_model->update($id, $formArray);
+            $this->mitra_model->update($id, $formArray);
 
             $this->session->set_flashdata('success', 'User updated successfully');
             redirect(base_url() . 'mitra/user/index');
         } else {
-            $data['user'] = $user;
+            $data['mitra'] = $mitra;
             $this->load->view('mitra/partials/header');
             $this->load->view('mitra/user/edit', $data);
             $this->load->view('mitra/partials/footer');
@@ -104,15 +104,15 @@ class User extends CI_Controller
 
     public function delete($id)
     {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($id);
+        $this->load->model('mitra_model');
+        $mitra = $this->mitra_model->getUser($id);
 
-        if (empty($user)) {
+        if (empty($mitra)) {
             $this->session->set_flashdata('error', 'User not found');
             redirect(base_url() . 'mitra/user/index');
         }
 
-        $this->User_model->delete($id);
+        $this->mitra_model->delete($id);
 
         $this->session->set_flashdata('success', 'User deleted successfully');
         redirect(base_url() . 'mitra/user/index');

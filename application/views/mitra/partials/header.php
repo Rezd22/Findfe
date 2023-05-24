@@ -64,12 +64,20 @@
                                 Menu</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown active">
+                    <!-- <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Orders
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="<?php echo base_url() . 'mitra/orders/'; ?>"><i class="fas fa-shopping-basket"></i> All Orders</a>
+                        </div>
+                    </li> -->
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Premium
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="<?php echo base_url() . 'mitra/premium/'; ?>"><i class="fas fa-shopping-basket"></i> Buy Premium</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
@@ -79,6 +87,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="<?php echo base_url() . 'mitra/profile'; ?>"><i class="fas fa-user-circle"></i> My Profile</a>
+                            <a class="dropdown-item" href="<?php echo base_url() . 'chat'; ?>"><i class="fas fa-circle"></i> Chat</a>
                         </div>
                     </li>
                     <li class="nav-item active">

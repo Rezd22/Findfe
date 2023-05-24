@@ -71,8 +71,8 @@ class mitra_model extends CI_Model
     public function getUser($id)
     {
         $this->db->where('mitra_id', $id);
-        $user = $this->db->get('mitra')->row_array();
-        return $user;
+        $mitra = $this->db->get('mitra')->row_array();
+        return $mitra;
     }
     public function update($id, $formArray)
     {

@@ -12,8 +12,9 @@
                 <h4 class="card-title font-weight-bold text-primary"><?php echo $res['name']; ?></h4>
                 <p class="card-text lead"><?php echo $res['address']; ?></p>
                 <p class="card-text">
-                    Hidangan di buat oleh koki yang berpengalaman
+                    Produk di buat oleh mitra yang berpengalaman
                 </p>
+                <a class="dropdown-item" href="<?php echo base_url() . 'chat'; ?>"><i class="fas fa-user-circle"></i> Chat With Mitra</a>
             </div>
         </div>
     </div>
@@ -30,6 +31,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h4 class="card-title"><?php echo $kopi['name']; ?></h4>
                                 <h4 class="text-muted"><b>Rp<?php echo $kopi['price']; ?></b></h4>
+
                             </div>
                             <p class="card-text"><?php echo $kopi['about']; ?></p>
                             <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Add to

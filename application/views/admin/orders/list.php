@@ -12,7 +12,7 @@
         <?php endif ?>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-                <h2>All Orders</h2>
+                <h2>Kelola Premium </h2>
             </div>
             <input class="form-control mb-3" id="myInput" type="text" placeholder="Search .." style="width:50%;">
         </div>
@@ -44,21 +44,21 @@
 
                                 <?php $status = $order['status'];
                                 if ($status == "" or $status == "NULL") { ?>
-                                    <td> <button type="button" class="btn btn-secondary" style="font-weight:bold;"><i class="fas fa-bars"></i> Dispatch</button></td>
+                                    <td> <button type="button" class="btn btn-secondary" style="font-weight:bold;"><i class="fas fa-bars"></i> Unpaid</button></td>
                                 <?php }
                                 if ($status == "in process") { ?>
-                                    <td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> On the way!</button></td>
+                                    <td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> Processing</button></td>
                                 <?php }
                                 if ($status == "closed") { ?>
-                                    <td> <button type="button" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Delivered</button>
+                                    <td> <button type="button" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Paid</button>
                                     </td> <?php } ?> <?php if ($status == "rejected") { ?>
                                     <td> <button type="button" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelled</button>
                                     </td>
                                 <?php } ?>
                                 <td><?php echo $order['date']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . 'mitra/orders/processOrder/' . $order['o_id']; ?>" class="btn btn-info mb-1"> <i class="fas fa-arrow-alt-circle-right"></i> Process</a>
-                                    <a href="<?php echo base_url() . 'mitra/orders/deleteOrder/' . $order['o_id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    <a href="<?php echo base_url() . 'admin/orders/processOrder/' . $order['o_id']; ?>" class="btn btn-info mb-1"> <i class="fas fa-arrow-alt-circle-right"></i> Edit</a>
+                                    <a href="<?php echo base_url() . 'admin/orders/deleteOrder/' . $order['o_id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -75,7 +75,7 @@
 <script>
     function deleteOrder(id) {
         if (confirm("Are you sure you want to delete orders?")) {
-            window.location.href = '<?php echo base_url() . 'mitra/orders/deleteOrder/'; ?>' + id;
+            window.location.href = '<?php echo base_url() . 'admin/orders/deleteOrder/'; ?>' + id;
         }
     }
 

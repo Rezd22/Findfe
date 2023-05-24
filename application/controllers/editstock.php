@@ -27,9 +27,9 @@ class editstock extends CI_Controller
         $data['date'] = date('Y-m-d H:i:s', now());
 
 
-        $this->load->view('front/partials/header');
+       $this->load->view('front/partials/header');
         $this->load->view('front/editstock', $data);
-        $this->load->view('front/partials/footer');
+        $this->load->view('front/partials/footer'); 
     }
     public function editstock()
     {

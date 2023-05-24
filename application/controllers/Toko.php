@@ -13,4 +13,5 @@ class toko extends CI_Controller
 		$this->load->view('front/toko', $data);
 		$this->load->view('front/partials/footer');
 	}
+	
 }
