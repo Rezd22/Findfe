@@ -61,7 +61,7 @@
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="<?php echo base_url() . 'cart'; ?>"><i class="fas fa-cart-arrow-down"></i> My Cart</a>
+                            <a class="nav-link" href="<?php echo base_url() . 'cart'; ?>"><i class="fas fa-cart-arrow-down"></i> Coming soon </a>
                         </li>
                     <?php } ?>
                 </ul>

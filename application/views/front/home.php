@@ -11,8 +11,8 @@
             <div class="carousel-caption text-left">
                 <h1 class="display-2">Butuh biji Kopi??!</h1>
                 <h3>kami di sini untuk membantu Anda mancari biji kopi pilihan </h3>
-                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-primary btn-lg">View Menu</a>
+                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-outline-light btn-lg">Mitra</a>
+                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-primary btn-lg">View Mitra</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -20,8 +20,8 @@
             <div class="carousel-caption text-right">
                 <h1 class="display-2">>Butuh Kopi??!</h1>
                 <h3>kami di sini untuk melayani Anda</h3>
-                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-primary btn-lg">View Menu</a>
+                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-outline-light btn-lg">Mitra</a>
+                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-primary btn-lg">View Mitra</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -29,8 +29,8 @@
             <div class="carousel-caption text-right">
                 <h1 class="display-2">>Butuh Kopi??!</h1>
                 <h3>kami di sini untuk melayani Anda</h3>
-                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-primary btn-lg">View Menu</a>
+                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-outline-light btn-lg">Mitra</a>
+                <a href="<?php echo base_url() . 'toko/index' ?>" class="btn btn-primary btn-lg">View Mitra</a>
             </div>
         </div>
     </div>
@@ -106,8 +106,8 @@
                                             <h4 class="text-muted"><b>Rp<?php echo $kopi['price']; ?></b></h4>
                                         </div>
                                         <p class="card-text"><?php echo $kopi['about']; ?></p>
-                                        <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Tambahkan ke
-                                            Cart</a>
+                                        <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Cari Lokasi (coming soon)
+                                            </a>
                                     </div>
                                 </div>
 

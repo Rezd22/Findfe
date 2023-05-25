@@ -46,13 +46,13 @@
                                 <td><?php echo $premium['o_days']; ?></td>
                                 <!-- <td><?php echo $premium['address']; ?></td> -->
                                 <td>
-                                    <a href="<?php echo base_url() . 'mitra/premium/edit/' . $premium['p_id'] ?>" class="btn btn-info mb-1"><i class="fas fa-edit mr-1"></i>Edit</a>
+                                    <a href="<?php echo base_url() . 'admin/premium/edit/' . $premium['p_id'] ?>" class="btn btn-info mb-1"><i class="fas fa-edit mr-1"></i>Edit</a>
 
                                     <a href="javascript:void(0);" onclick="deletepremium(<?php echo $premium['p_id']; ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
                                 </td>
                                 <!-- <center>
                                 <td><img class="img-responsive radius" 
-                                src=" //echo base_url();?>public/mitra/img/res.jpg"
+                                src=" //echo base_url();?>public/admin/img/res.jpg"
                                 style="min-width:150px; min-height: 100px;"></td>
                             </center> -->
                             </tr>
@@ -71,7 +71,7 @@
 <script type="text/javascript">
     function deletepremium(id) {
         if (confirm("Are you sure you want to delete premium?")) {
-            window.location.href = '<?php echo base_url() . 'mitra/premium/delete/'; ?>' + id;
+            window.location.href = '<?php echo base_url() . 'admin/premium/delete/'; ?>' + id;
         }
     }
     $(document).ready(function() {

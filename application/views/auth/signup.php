@@ -14,7 +14,7 @@
 			<div class="row form_row">
 				<div class="col-lg-4 bg-white px-3 py-3" id="form_col">
 					<form autocomplete="off" id="form_signup" enctype="multipart/form-data">
-						<h3 class="text-center">Create Account</h3>
+						<h3 class="text-center">Create Kontak</h3>
 						
 						<div class="alert alert-danger d-none" id="alert"></div>
 						<div id="ruler" class="">

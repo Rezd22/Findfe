@@ -34,8 +34,8 @@
 
                             </div>
                             <p class="card-text"><?php echo $kopi['about']; ?></p>
-                            <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Add to
-                                Cart</a>
+                            <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Coming soon
+                                </a>
                         </div>
                     </div>
                 </div>
