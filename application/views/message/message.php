@@ -2,11 +2,12 @@
 
 if (isset($_SESSION)) {
 	$image = $_SESSION['image'];
-	$name = $data[0]['user_fname']." ".$data[0]['user_lname'];
+	$name = $data[0]['user_fname'] . " " . $data[0]['user_lname'];
 }
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,24 +15,25 @@ if (isset($_SESSION)) {
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/message/messagestyle.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/message/loading-bar.css">
+	<link rel="stylesheet" href="../assets/css/message/loading-bar.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	
+
 	<title>Realtime Chat Application CI</title>
 </head>
+
 <body>
 	<section id="main" class="bg-dark">
 		<div id="chat_user_list">
 			<div id="owner_profile_details">
-				<div id="owner_avtar" style="background-image: url('../upload/<?php echo $image;?>'); background-size: 100% 100%">
+				<div id="owner_avtar" style="background-image: url('../public/uploads/profile/<?php echo $image; ?>'); background-size: 100% 100%">
 					<div>
 						<div id="online"></div>
 					</div>
 				</div>
 				<div id="owner_profile_text" class="">
-					<h6 id="owner_profile_name" class="m-0 p-0"><?php echo $name;?></h6>
+					<h6 id="owner_profile_name" class="m-0 p-0"><?php echo $name; ?></h6>
 					<div id="bio">
 						<p id="owner_profile_bio" class="m-0 p-0"></p>
 						<i class="fas fa-edit" id="edit_icon"></i>
@@ -42,7 +44,7 @@ if (isset($_SESSION)) {
 			<div id="search_box_container" class="py-3">
 				<input type="text" name="txt_search" class="form-control" autocomplete="off" placeholder="Search User" id="search">
 			</div>
-			<hr/>
+			<hr />
 			<div id="user_list" class="py-3">
 			</div>
 		</div>
@@ -79,7 +81,7 @@ if (isset($_SESSION)) {
 				<div id="messageBar" class="py-4 px-4">
 					<div id="textBox_attachment_emoji_container">
 						<div id="text_box_message">
-							<input type="text" maxlength = "200" name="txt_message" id="messageText" class="form-control" placeholder="Type your message">
+							<input type="text" maxlength="200" name="txt_message" id="messageText" class="form-control" placeholder="Type your message">
 						</div>
 						<div id="text_counter">
 							<p id="count_text" class="m-0 p-0"></p>
@@ -139,4 +141,5 @@ if (isset($_SESSION)) {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 	<script type="text/javascript" src="../assets/js/message/main.js"></script>
 </body>
+
 </html>

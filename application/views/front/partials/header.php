@@ -34,7 +34,7 @@
                         <a class="nav-link active" href="<?php echo base_url() . 'toko'; ?>">Mitra</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo base_url() . 'rating'; ?>">Star</a>
+                        <a class="nav-link active" href="<?php echo base_url() . 'rating'; ?>">Rating</a>
                     </li>
                     <?php $user = $this->session->userdata('user');
                     if (empty($user)) {

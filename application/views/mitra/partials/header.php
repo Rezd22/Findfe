@@ -65,7 +65,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo base_url() . 'rating'; ?>">Star</a>
+                        <a class="nav-link active" href="<?php echo base_url() . 'rating'; ?>">Rating</a>
                     </li>
                     <!-- <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +80,7 @@
                             Premium
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url() . 'mitra/premium/'; ?>"><i class="fas fa-shopping-basket"></i> Buy Premium</a>
+                            <a class="dropdown-item" href="<?php echo base_url() . 'mitra/premium/list'; ?>"><i class="fas fa-shopping-basket"></i> Buy Premium</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown active">

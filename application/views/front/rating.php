@@ -16,7 +16,10 @@
         <br />
         <hr class="hr hr-blurry" />
         <span id="r_list"></span>
+        <br>
+
     </div>
+
 </body>
 
 </html>

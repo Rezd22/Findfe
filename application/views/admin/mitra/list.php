@@ -12,7 +12,7 @@
         <?php endif ?>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-                <h2>Available Mitra</h2>
+                <h2>Available Users</h2>
             </div>
             <input class="form-control mb-3" id="myInput" type="text" placeholder="Search .." style="width:50%;">
         </div>
@@ -23,18 +23,19 @@
                         <th>#</th>
                         <th>Username</th>
                         <th>Email</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                    <?php if (!empty($mitras)) { ?>
-                        <?php foreach ($mitras as $mitra) { ?>
+                    <?php if (!empty($users)) { ?>
+                        <?php foreach ($users as $user) { ?>
                             <tr>
-                                <td><?php echo $mitra['mitra_id']; ?></td>
-                                <td><?php echo $mitra['username']; ?></td>
-                                <td><?php echo $mitra['email']; ?></td>
+                                <td><?php echo $user['mitra_id']; ?></td>
+                                <td><?php echo $user['username']; ?></td>
+                                <td><?php echo $user['email']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . 'admin/mitra/edit/' . $mitra['mitra_id']; ?>" class="btn btn-info mb-1"><i class="fas fa-edit mr-1"></i>Edit</a>
-                                    <a href="javascript:void(0);" onclick="deleteUser(<?php echo $mitra['mitra_id']; ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    <a href="<?php echo base_url() . 'admin/mitra/edit/' . $user['mitra_id']; ?>" class="btn btn-info mb-1"><i class="fas fa-edit mr-1"></i>Edit</a>
+                                    <a href="javascript:void(0);" onclick="deleteUser(<?php echo $user['mitra_id']; ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>

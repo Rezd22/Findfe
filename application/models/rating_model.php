@@ -50,7 +50,7 @@ class rating_model extends CI_Model
    <br>
    <br>
    <div class="py-3 pb-4 border-bottom">
-                        <a href="comment" class="btn border button">Ulasan</a>
+                        <a href="comment/' . $row["r_id"] . '" class="btn btn-primary">Ulasan</a>
                     </div>
    
  

@@ -13,7 +13,7 @@ class rating extends CI_Controller
    function index()
    {
 
-
+      $this->load->view('front/partials/header');
       $this->load->view('front/rating');
       $this->load->view('front/partials/footer');
    }

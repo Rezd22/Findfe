@@ -14,7 +14,7 @@ class Cart extends CI_Controller {
 
         //Load cart libraray
         $this->load->library('cart');
-        $this->load->model('Menu_model');
+        $this->load->model('premium_model');
     }
 
     public function index() {

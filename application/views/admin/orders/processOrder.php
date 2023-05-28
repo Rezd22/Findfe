@@ -8,7 +8,7 @@
             </tr>
             <tr>
                 <td><strong>menu Item:</strong></td>
-                <td><?php echo $order['d_name'] ?></td>
+                <td><?php echo $order['p_name'] ?></td>
             </tr>
             <tr>
                 <td><strong>Quantity:</strong></td>

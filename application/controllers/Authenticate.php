@@ -50,14 +50,14 @@ class Authenticate extends CI_Controller
 				'user_status' => $user_status
 
 			);
-			$email = $this->Auth->checkEmail($user_email);
+			$email = $this->checkEmailuser($user_email);
 
 			if (isset($email[0]['user_email'])) {
 				echo "Email is already exist";
 			} else {
-				$this->Auth->signup($data_arr);
-				$this->Auth->idUpdate();
-				move_uploaded_file($file_tmpname, "./upload/" . $file_upload_name);
+				$this->signupuser($data_arr);
+				$this->idUpdateuser();
+				move_uploaded_file($file_tmpname, "./public/uploads/profile/" . $file_upload_name);
 
 
 				$username = $user_fname . " " . $user_lname;
@@ -73,30 +73,64 @@ class Authenticate extends CI_Controller
 	}
 	public function loginData()
 	{
-		if (isset($_POST['txt_email']) && isset($_POST['txt_pass'])) {
-			$data = array(
-				'email' => $_POST['txt_email'],
-				'pass' => $_POST['txt_pass']
+		// if (isset($_POST['txt_email']) && isset($_POST['txt_pass'])) {
+		$data = array(
+			'email' => $_POST['txt_email'],
+			'pass' => $_POST['txt_pass'],
+		);
+		$res = $this->loginuser($data);
+		if ($res != 0) {
+			$username = $res[0]['user_fname'] . " " . $res[0]['user_lname'];
+			$image = $res[0]['user_avtar'];
+			$uniqueid = $res[0]['unique_id'];
+			$session_array = array(
+				'username' => $username,
+				'image' => $image,
+				'uniqueid' => $uniqueid
 			);
-			$res = $this->Auth->login($data);
-			if ($res != 0) {
-				$username = $res[0]['user_fname'] . " " . $res[0]['user_lname'];
-				$image = $res[0]['user_avtar'];
-				$uniqueid = $res[0]['unique_id'];
-				$session_array = array(
-					'username' => $username,
-					'image' => $image,
-					'uniqueid' => $uniqueid
-				);
-				$this->load->model('Messagemodel');
-				$this->session->set_userdata($session_array);
-				$this->Messagemodel->logoutUser('active', '');
+			$this->load->model('Messagemodel');
+			$this->session->set_userdata($session_array);
+			$this->Messagemodel->logoutUser('active', '');
 
 
-				print_r($res);
-			} else {
-				echo 0;
-			}
+			print_r($res);
+		} else {
+			echo 0;
 		}
+		// }
+	}
+	public function loginuser($data)
+	{
+		$data = $this->db->get_where('user', array('user_email' => $data['email'], 'user_pass' => $data['pass']));
+
+		if ($data->num_rows() > 0) {
+			return $data->result_array();
+		} else {
+			return false;
+		}
+	}
+	public function signupuser($data)
+	{
+		$this->db->insert('user', $data);
+	}
+	public $email;
+	public function idUpdateuser()
+	{
+		$this->db->select('unique_id');
+		$unique_id = $this->db->get('user')->result_array();
+		$totalId = count($unique_id);
+		for ($i = 0; $i < $totalId; $i++) {
+			$data = $unique_id[$i]['unique_id'];
+			$count = $i + 1;
+			$this->db->query("UPDATE user SET id = '$count' WHERE unique_id = '$data'");
+		}
+	}
+	public function checkEmailuser($email)
+	{
+		$this->db->select('user_email');
+		$this->db->where('user_email', $email);
+		$this->email = $this->db->get('user');
+
+		return $this->email->result_array();
 	}
 }

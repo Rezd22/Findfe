@@ -15,13 +15,12 @@ class premium_model extends CI_Model
         return $result;
     }
 
-    public function getpremium($id)
+    public function getSinglepremium($id)
     {
         $this->db->where('p_id', $id);
-        $premium = $this->db->get('premium')->row_array();
-        return $premium;
+        $kopi = $this->db->get('premium')->row_array();
+        return $kopi;
     }
-
     public function update($id, $formArray)
     {
         $this->db->where('p_id', $id);
@@ -47,5 +46,16 @@ class premium_model extends CI_Model
         // $this->db->join('res_category', 'premium.c_id = res_category.c_id');
         $result = $this->db->get()->result_array();
         return $result;
+    }
+    public function get_premiums($id)
+    {
+        $this->db->where('p_id', $id);
+        $premium = $this->db->get('premium')->result_array();
+        return $premium;
+    }
+    public function getpremiumall()
+    {
+        $premium = $this->db->get('premium')->result_array();
+        return $premium;
     }
 }

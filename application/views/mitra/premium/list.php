@@ -37,7 +37,7 @@
                                                 <?php $image = $premium['img']; ?>
                                                 <img class="card-img-top" src="<?php echo base_url() . 'public/uploads/premium/' . $image; ?>">
                                                 <div class="card-body">
-                                                    <h4 class="card-title"><?php echo $premium['name']; ?></h4>
+                                                    <h4 class="card-title"><?php echo $premium['p_name']; ?></h4>
                                                     <!-- <p class="card-text mb-0"><?php echo $premium['c_name'] . " toko"; ?></p> -->
                                                     <!-- <p class="card-text mb-0"><?php echo $premium['address']; ?></p> -->
                                                     <hr>
@@ -46,8 +46,7 @@
                                                     <p class="card-text mb-0"><?php echo $premium['o_days']; ?></p>
                                                     <p class="card-text"><?php echo $premium['o_hr']; ?> - <?php echo $premium['c_hr']; ?></p>
                                                     <hr>
-                                                    <a href="<?php echo base_url() . 'kopi/list/' . $premium['r_id']; ?>" class="btn btn-primary">View
-                                                        Menu</a>
+                                                    <a href="<?php echo base_url() . 'premium/addToCart/' . $premium['p_name']; ?>" class="btn btn-primary"> Buy Premium</a>
                                                 </div>
                                             </div>
                                         </div>

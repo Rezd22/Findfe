@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class mitra extends CI_Controller
+class Mitra extends CI_Controller
 {
 
     public function __construct()
@@ -18,7 +18,7 @@ class mitra extends CI_Controller
     {
         $this->load->model('mitra_model');
         $mitras = $this->mitra_model->getUsers();
-        $data['mitra'] = $mitras;
+        $data['users'] = $mitras;
         $this->load->view('admin/partials/header');
         $this->load->view('admin/mitra/list', $data);
         $this->load->view('admin/partials/footer');
@@ -29,7 +29,7 @@ class mitra extends CI_Controller
         $this->load->model('mitra_model');
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
-        $this->form_validation->set_rules('mitraname', 'mitraname', 'trim|required');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
         $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required');
@@ -39,7 +39,7 @@ class mitra extends CI_Controller
 
         if ($this->form_validation->run() == true) {
 
-            $formArray['mitraname'] = $this->input->post('mitraname');
+            $formArray['username'] = $this->input->post('username');
             $formArray['f_name'] = $this->input->post('firstname');
             $formArray['l_name'] = $this->input->post('lastname');
             $formArray['email'] = $this->input->post('email');
@@ -50,7 +50,7 @@ class mitra extends CI_Controller
 
             $this->mitra_model->create($formArray);
 
-            $this->session->set_flashdata('success', 'mitra added successfully');
+            $this->session->set_flashdata('success', 'User added successfully');
             redirect(base_url() . 'admin/mitra/index');
         } else {
             $this->load->view('admin/partials/header');
@@ -65,13 +65,13 @@ class mitra extends CI_Controller
         $mitra = $this->mitra_model->getUser($id);
 
         if (empty($mitra)) {
-            $this->session->set_flashdata('error', 'mitra not found');
+            $this->session->set_flashdata('error', 'User not found');
             redirect(base_url() . 'admin/mitra/index');
         }
 
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
-        $this->form_validation->set_rules('mitraname', 'mitraname', 'trim|required');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
         $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required');
@@ -92,7 +92,7 @@ class mitra extends CI_Controller
 
             $this->mitra_model->update($id, $formArray);
 
-            $this->session->set_flashdata('success', 'mitra updated successfully');
+            $this->session->set_flashdata('success', 'User updated successfully');
             redirect(base_url() . 'admin/mitra/index');
         } else {
             $data['mitra'] = $mitra;
@@ -108,13 +108,13 @@ class mitra extends CI_Controller
         $mitra = $this->mitra_model->getUser($id);
 
         if (empty($mitra)) {
-            $this->session->set_flashdata('error', 'mitra not found');
+            $this->session->set_flashdata('error', 'User not found');
             redirect(base_url() . 'admin/mitra/index');
         }
 
         $this->mitra_model->delete($id);
 
-        $this->session->set_flashdata('success', 'mitra deleted successfully');
+        $this->session->set_flashdata('success', 'User deleted successfully');
         redirect(base_url() . 'admin/mitra/index');
     }
 }

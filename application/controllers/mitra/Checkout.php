@@ -51,9 +51,9 @@ class Checkout extends CI_Controller
 
         $data['user'] = $user;
         $data['cartItems'] = $this->cart->contents();
-        $this->load->view('front/partials/header');
-        $this->load->view('front/checkout', $data);
-        $this->load->view('front/partials/footer');
+        $this->load->view('mitra/partials/header');
+        $this->load->view('mitra/checkout', $data);
+        $this->load->view('mitra/partials/footer');
     }
 
     public function placeOrder($u_Id)

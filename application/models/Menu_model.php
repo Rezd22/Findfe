@@ -52,7 +52,7 @@ class Menu_model extends CI_Model
         $kopi = $this->db->get('kopiesh')->result_array();
         return $kopi;
     }
-
+//
     public function countstock()
     {
         $this->db->select('stock');

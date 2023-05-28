@@ -1,12 +1,13 @@
-<!-- File: application/views/comments.php -->
+<!-- File: application/views/ulasan.php -->
 <div class="container">
-    <h1>Comments</h1>
+    <h1>ulasan</h1>
 
     <!-- Form untuk menambahkan komentar -->
     <form id="commentForm" action="<?php echo site_url('comment/add_comment'); ?>" method="post">
         <div class="form-group">
             <label for="comment">Leave a comment:</label>
             <textarea class="form-control" id="comment" name="content" rows="3" required></textarea>
+            <input type="hidden" name="r_id" value="<?php echo $r_id ?>">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -14,19 +15,21 @@
     <hr>
 
     <!-- Tampilan komentar -->
-    <div id="commentsContainer">
-        <?php foreach ($comments as $comment) : ?>
+    <div id="ulasanContainer">
+        <?php foreach ($ulasan as $comment) : ?>
             <div class="card mb-3">
                 <div class="card-body">
+                    <p class="card-text"><?php echo $comment['u_id']; ?></p>
                     <p class="card-text"><?php echo $comment['content']; ?></p>
                     <small class="text-muted"><?php echo $comment['created_at']; ?></small>
 
                     <!-- Tombol hapus komentar -->
-                    <button class="btn btn-sm btn-danger deleteComment" data-comment-id="<?php echo $comment['id']; ?>">Delete</button>
+                    <button class="btn btn-sm btn-danger deleteComment" data-comment-id="<?php echo $comment['ul_id']; ?>">Delete</button>
 
                     <!-- Form untuk menambahkan balasan -->
                     <form class="replyForm mt-3" action="<?php echo site_url('comment/add_reply'); ?>" method="post">
-                        <input type="hidden" name="parent_id" value="<?php echo $comment['id']; ?>">
+                        <input type="hidden" name="ul_id" value="<?php echo $comment['ul_id']; ?>">
+                        <input type="hidden" name="r_id" value="<?php echo $comment["r_id"]; ?>">
                         <div class="form-group">
                             <label for="reply">Reply:</label>
                             <textarea class="form-control" name="content" rows="2" required></textarea>
@@ -35,7 +38,7 @@
                     </form>
 
                     <!-- Tampilan balasan -->
-                    <?php $replies = $this->Comment_model->get_replies($comment['id']); ?>
+                    <?php $replies = $this->Comment_model->get_replies($comment['ul_id']); ?>
                     <?php foreach ($replies as $reply) : ?>
                         <div class="card mt-3 bg-light">
                             <div class="card-body">
@@ -48,6 +51,7 @@
             </div>
         <?php endforeach; ?>
     </div>
+    <a href="<?php echo base_url() . '/rating' ?>" class="btn border button">Back</a>
 </div>
 
 <!-- JavaScript -->

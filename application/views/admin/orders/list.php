@@ -36,7 +36,7 @@
                         <?php foreach ($orders as $order) { ?>
                             <tr>
                                 <td><?php echo $order['username']; ?></td>
-                                <td><?php echo $order['d_name']; ?></td>
+                                <td><?php echo $order['p_name']; ?></td>
                                 <td><?php echo $order['quantity']; ?></td>
                                 <td><?php echo "Rp" . $order['price']; ?></td>
                                 <td><?php echo $order['address']; ?></td>

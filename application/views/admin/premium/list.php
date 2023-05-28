@@ -37,7 +37,7 @@
                         <?php foreach ($premiums as $premium) { ?>
                             <tr>
                                 <td><?php echo $premium['p_id']; ?></td>
-                                <td><?php echo $premium['name']; ?></td>
+                                <td><?php echo $premium['p_name']; ?></td>
                                 <td><?php echo $premium['email']; ?></td>
                                 <!-- <td><?php echo $premium['phone']; ?></td> -->
                                 <td><?php echo $premium['url']; ?></td>

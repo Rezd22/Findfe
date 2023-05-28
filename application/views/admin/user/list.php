@@ -57,6 +57,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     function deleteUser(id) {
         if (confirm("Are you sure you want to delete user?")) {

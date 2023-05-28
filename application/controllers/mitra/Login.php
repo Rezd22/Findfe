@@ -27,7 +27,7 @@ class Login extends CI_Controller
                     $mitraArray['mitra_id'] = $mitra['mitra_id'];
                     $mitraArray['username'] = $mitra['username'];
                     $this->session->set_userdata('mitra', $mitraArray);
-                    redirect(base_url() . 'mitra/home');
+                    redirect(base_url() . 'mitra/store/');
                 } else {
                     $this->session->set_flashdata('msg', 'Either username or password is incorrect');
                     redirect(base_url() . 'mitra/login/index');
