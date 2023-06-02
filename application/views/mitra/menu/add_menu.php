@@ -46,7 +46,7 @@
                     <span></span>
                 </div>
                 <div class="form-group">
-                    <label for="img">menu Image</label>
+                    <label for="img">Produk Image</label>
                     <input type="file" id="image" name="image" placeholder="Enter Image" class="form-control my-2
                     <?php echo (!empty($errorImageUpload))  ? 'is-invalid' : ''; ?>">
                     <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : ''; ?>

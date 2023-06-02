@@ -14,9 +14,35 @@
 
         <h3 align="center">Rating in Findfe</h3>
         <br />
+        <h1>Popular Stores</h1>
+        <ul>
+            <?php if (!empty($popular_stores)) : ?>
+                <?php foreach ($popular_stores as $store) : ?>
+                    <li><?php echo $store['name']; ?>(Average Rating: <?php echo $store['avg_rating']; ?>)</li>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p>Tidak ada toko populer yang ditemukan.</p>
+            <?php endif; ?>
+        </ul>
         <hr class="hr hr-blurry" />
         <span id="r_list"></span>
         <br>
+
+        <?php
+        if ($this->session->userdata('mitra') == TRUE) {
+        ?>
+            <div>><a href="<?php echo base_url() . 'mitra'; ?>" class="btn btn-warning"><i class="fas fa-angle-left"></i>
+                    Back</a></div>
+        <?php
+        } else {
+        ?>
+            <div>><a href="<?php echo base_url() . 'home'; ?>" class="btn btn-warning"><i class="fas fa-angle-left"></i>
+                    Back</a></div>
+        <?php
+        }
+
+        ?>
+
 
     </div>
 

@@ -13,5 +13,11 @@ class toko extends CI_Controller
 		$this->load->view('front/toko', $data);
 		$this->load->view('front/partials/footer');
 	}
-	
+	public function popular()
+	{
+		$this->load->model('Store_model');
+		$popular_stores = $this->Store_model->get_popular_stores();
+		$data['popular_stores'] = $popular_stores;
+		$this->load->view('front/rating', $data);
+	}
 }

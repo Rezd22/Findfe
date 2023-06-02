@@ -35,8 +35,8 @@ class Home extends CI_Controller
         $resReport = $this->admin_model->getResReport();
         $data['resReport'] = $resReport;
 
-        $kopiReport = $this->admin_model->kopiReport();
-        $data['kopiReport'] = $kopiReport;
+        // $kopiReport = $this->admin_model->kopiReport();
+        // $data['kopiReport'] = $kopiReport;
         $this->load->view('admin/partials/header');
         $this->load->view('admin/dashboard', $data);
         $this->load->view('admin/partials/footer');
@@ -49,12 +49,12 @@ class Home extends CI_Controller
         $this->load->view('admin/reports/res_report', $data);
     }
 
-    public function kopiesReport()
-    {
-        $kopiReport = $this->admin_model->kopiReport();
-        $data['kopiReport'] = $kopiReport;
-        $this->load->view('admin/reports/kopi_report', $data);
-    }
+    // public function kopiesReport()
+    // {
+    //     $kopiReport = $this->admin_model->kopiReport();
+    //     $data['kopiReport'] = $kopiReport;
+    //     $this->load->view('admin/reports/kopi_report', $data);
+    // }
 
     public function usersReport()
     {
@@ -135,19 +135,19 @@ class Home extends CI_Controller
 
 
 
-        // $html = $this->table->generate();
-        // //Generate HTML table data from MySQL - end
+    // $html = $this->table->generate();
+    // //Generate HTML table data from MySQL - end
 
-        // // add a page
-        // $pdf->AddPage();
+    // // add a page
+    // $pdf->AddPage();
 
-        // // output the HTML content
-        // $pdf->writeHTML($html, true, false, true, false, '');
+    // // output the HTML content
+    // $pdf->writeHTML($html, true, false, true, false, '');
 
-        // // reset pointer to the last page
-        // $pdf->lastPage();
+    // // reset pointer to the last page
+    // $pdf->lastPage();
 
-        // //Close and output PDF document
-        // $pdf->Output(md5(time()) . '.pdf', 'I');
+    // //Close and output PDF document
+    // $pdf->Output(md5(time()) . '.pdf', 'I');
     // }
 }

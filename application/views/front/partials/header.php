@@ -55,13 +55,13 @@
                                 <hr>
                                 <a class="dropdown-item" href="<?php echo base_url() . 'LihatStok'; ?>"><i class="fas fa-eye"></i></i> Lihat Data Stok</a>
                                 <hr>
-                                <a class="dropdown-item" href="<?php echo base_url() . 'orders/'; ?>"><i class="fas fa-shopping-bag"></i> Orders</a>
+                                <a class="dropdown-item" href="<?php echo base_url() . 'chat'; ?>"><i class="fas fa-circle"></i> Chat</a>
                                 <hr>
                                 <a class="dropdown-item" href="<?php echo base_url() . 'login/logout'; ?>"><i class="fas fa-power-off"></i> Logout</a>
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="<?php echo base_url() . 'cart'; ?>"><i class="fas fa-cart-arrow-down"></i> Coming soon </a>
+                            <a class="nav-link" href="<?php echo base_url() . 'Auth'; ?>"><i class="fas fa-star"></i> Find Mitra</a>
                         </li>
                     <?php } ?>
                 </ul>

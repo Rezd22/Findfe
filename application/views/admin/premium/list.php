@@ -1,65 +1,51 @@
-<div class="container my-3">
-    <?php if ($this->session->flashdata('res_success') != "") : ?>
-        <div class="alert alert-success">
-            <?php echo $this->session->flashdata('res_success'); ?>
-        </div>
-    <?php endif ?>
-    <?php if ($this->session->flashdata('error') != "") : ?>
-        <div class="alert alert-danger">
-            <?php echo $this->session->flashdata('error'); ?>
-        </div>
-    <?php endif ?>
-    <div class="row">
-        <div class="col-md-6">
-            <h4>Available Sales</h4>
-        </div>
-        <div class="col-md-6 text-right">
+<div class="container mt-3">
+    <div class="container shadow-container">
+        <?php if ($this->session->flashdata('premium_success') != "") : ?>
+            <div class="alert alert-success">
+                <?php echo $this->session->flashdata('premium_success'); ?>
+            </div>
+        <?php endif ?>
+        <?php if ($this->session->flashdata('error') != "") : ?>
+            <div class="alert alert-danger">
+                <?php echo $this->session->flashdata('error'); ?>
+            </div>
+        <?php endif ?>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <h2>All Premium Details</h2>
+            </div>
             <input class="form-control mb-3" id="myInput" type="text" placeholder="Search .." style="width:50%;">
         </div>
-        <div class="col-md-12">
-            <table class="table table-striped table-responsive table-hover table-bordered">
+        <div class="table-responsive-sm">
+            <table class="table table-bordered table-hover table-striped table-responsive">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <!-- <th>Contact</th> -->
-                        <th>Website</th>
-                        <th>Open Hrs</th>
-                        <th>Close Hrs</th>
-                        <th>Open Days</th>
-                        <!-- <th>Address</th> -->
+                        <th>Premium Name</th>
+                        <th>About</th>
+                        <th>Price</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                    <?php if (!empty($premiums)) { ?>
-                        <?php foreach ($premiums as $premium) { ?>
+                    <?php if (!empty($premiumesh)) { ?>
+                        <?php foreach ($premiumesh as $premium) { ?>
                             <tr>
                                 <td><?php echo $premium['p_id']; ?></td>
-                                <td><?php echo $premium['p_name']; ?></td>
-                                <td><?php echo $premium['email']; ?></td>
-                                <!-- <td><?php echo $premium['phone']; ?></td> -->
-                                <td><?php echo $premium['url']; ?></td>
-                                <td><?php echo $premium['o_hr']; ?></td>
-                                <td><?php echo $premium['c_hr']; ?></td>
-                                <td><?php echo $premium['o_days']; ?></td>
-                                <!-- <td><?php echo $premium['address']; ?></td> -->
+                                <td><?php echo $premium['name']; ?></td>
+                                <td><?php echo $premium['about']; ?></td>
+                                <td><?php echo "Rp" . $premium['price']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . 'admin/premium/edit/' . $premium['p_id'] ?>" class="btn btn-info mb-1"><i class="fas fa-edit mr-1"></i>Edit</a>
+                                    <a href="<?php echo base_url() . 'admin/premium/edit/' . $premium['p_id']; ?>" class="btn btn-info mb-1"><i class="fas fa-edit mr-1"></i>Edit</a>
 
-                                    <a href="javascript:void(0);" onclick="deletepremium(<?php echo $premium['p_id']; ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    <a href="javascript:void(0);" onclick="deleteMenu(<?php echo $premium['p_id']; ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+
                                 </td>
-                                <!-- <center>
-                                <td><img class="img-responsive radius" 
-                                src=" //echo base_url();?>public/admin/img/res.jpg"
-                                style="min-width:150px; min-height: 100px;"></td>
-                            </center> -->
                             </tr>
                         <?php } ?>
                     <?php } else { ?>
                         <tr>
-                            <td colspan="10">Records not found</td>
+                            <td colspan="4">Records not founds</td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -67,9 +53,8 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
-    function deletepremium(id) {
+    function deleteMenu(id) {
         if (confirm("Are you sure you want to delete premium?")) {
             window.location.href = '<?php echo base_url() . 'admin/premium/delete/'; ?>' + id;
         }

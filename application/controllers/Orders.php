@@ -14,7 +14,7 @@ class Orders extends CI_Controller
         }
         $this->load->model('Order_model');
         $this->load->model('Store_model');
-        $this->load->model('premium_model');
+        $this->load->model('Premium_model');
     }
     public function index()
     {
@@ -51,8 +51,8 @@ class Orders extends CI_Controller
         $p_id = $order['p_id'];
         $res = $this->Store_model->getStore($r_id);
         $data['res'] = $res;
-        $premium = $this->premium_model->getSinglepremium($p_id);
-        $data['premium'] = $premium;
+        $Premium = $this->Premium_model->getSinglePremium($p_id);
+        $data['Premium'] = $Premium;
 
         $user = $this->session->userdata('user');
         if ($u_id == $user['user_id']) {

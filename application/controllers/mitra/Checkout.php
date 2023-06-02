@@ -8,63 +8,62 @@ class Checkout extends CI_Controller
     {
         parent::__construct();
 
-        $user = $this->session->userdata('user');
-        if (empty($user)) {
+        $mitra = $this->session->userdata('mitra');
+        if (empty($mitra)) {
             $this->session->set_flashdata('msg', 'Your session has been expired');
-            redirect(base_url() . 'login/');
+            redirect(base_url() . 'mitra/login/');
         }
 
         $this->load->helper('date');
         $this->load->library('form_validation');
         $this->load->library('cart');
         $this->load->model('Order_model');
-        $this->load->model('User_model');
+        $this->load->model('mitra_model');
         $this->controller = 'checkout';
     }
 
     public function index()
     {
-        $loggedUser = $this->session->userdata('user');
-        $u_id = $loggedUser['user_id'];
-        $user = $this->User_model->getUser($u_id);
+        $loggedUser = $this->session->userdata('mitra');
+        $mitra_id = $loggedUser['mitra_id'];
+        $mitra = $this->mitra_model->getUser($mitra_id);
 
         if ($this->cart->total_items() <= 0) {
-            redirect(base_url() . 'toko');
+            redirect(base_url() . 'mitra/premium/list');
         }
-        $submit = $this->input->post('placeholder');
+        $submit = $this->input->post();
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
-        $this->form_validation->set_rules('address', 'Address', 'trim|required');
 
-        if ($this->form_validation->run() == true) {
-            $formArray['address'] = $this->input->post('address');
+
+        if ($submit) {
+
 
             //insert data into customer table and get last inserted custid
-            $this->User_model->update($u_id, $formArray);
-            $order = $this->placeOrder($u_id);
+            // $this->mitra_model->update($mitra_id);
+            $order = $this->placeOrder($mitra_id);
             if ($order) {
-                $this->session->set_flashdata('success_msg', 'Thank You! Your order has been placed successfully!');
-                redirect(base_url() . 'orders');
+                $this->session->set_flashdata('success_msg', 'Thank You! Your order has been placed successfully!' . $order);
+                redirect(base_url() . 'mitra/orders');
             } else {
                 $data['error_msg'] = "Order submission failed, please try again.";
             }
         }
 
-        $data['user'] = $user;
+        $data['mitra'] = $mitra;
         $data['cartItems'] = $this->cart->contents();
         $this->load->view('mitra/partials/header');
         $this->load->view('mitra/checkout', $data);
         $this->load->view('mitra/partials/footer');
     }
 
-    public function placeOrder($u_Id)
+    public function placeOrder($mitra_id)
     {
         $cartItems = $this->cart->contents();
         $i = 0;
         foreach ($cartItems as $item) {
-            $orderData[$i]['u_id'] = $u_Id;
-            $orderData[$i]['d_id'] = $item['id'];
-            $orderData[$i]['r_id'] = $item['r_id'];
-            $orderData[$i]['p_name'] = $item['name'];
+            $orderData[$i]['mitra_id'] = $mitra_id;
+            $orderData[$i]['p_id'] = $item['id'];
+            $orderData[$i]['name'] =  $item['name'];
             $orderData[$i]['quantity'] = $item['qty'];
             $orderData[$i]['price'] = $item['subtotal'];
             $orderData[$i]['date'] = date('Y-m-d H:i:s', now());

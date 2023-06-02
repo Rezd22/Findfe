@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Orders extends CI_Controller
+class orders extends CI_Controller
 {
 
     public function __construct()
@@ -10,11 +10,11 @@ class Orders extends CI_Controller
         $admin = $this->session->userdata('admin');
         if (empty($admin)) {
             $this->session->set_flashdata('msg', 'Your session has been expired');
-            redirect(base_url() . 'admin/login/index');
+            redirect(base_url() . 'admin/login');
         }
         $this->load->helper('date');
         $this->load->model('Order_model');
-        $this->load->model('User_model');
+        $this->load->model('mitra_model');
     }
 
     public function index()
@@ -47,7 +47,7 @@ class Orders extends CI_Controller
             $this->Order_model->update($id, $order);
 
             $this->session->set_flashdata('success', 'Order processed successfully');
-            redirect(base_url() . 'admin/orders/index');
+            redirect(base_url() . 'admin/orders');
         } else {
             $order = $this->Order_model->getAllOrders();
             $data['orders'] = $order;
@@ -62,12 +62,12 @@ class Orders extends CI_Controller
 
         if (empty($order)) {
             $this->session->set_flashdata('error', 'Order not found');
-            redirect(base_url() . 'admin/orders/index');
+            redirect(base_url() . 'admin/orders');
         }
 
         $this->Order_model->deleteOrder($id);
 
         $this->session->set_flashdata('success', 'Order deleted successfully');
-        redirect(base_url() . 'admin/orders/index');
+        redirect(base_url() . 'admin/orders');
     }
 }

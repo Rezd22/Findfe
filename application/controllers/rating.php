@@ -12,9 +12,11 @@ class rating extends CI_Controller
 
    function index()
    {
-
-      $this->load->view('front/partials/header');
-      $this->load->view('front/rating');
+      $this->load->model('Store_model');
+      $popular_stores = $this->Store_model->get_popular_stores();
+      $data['popular_stores'] = $popular_stores;
+      // var_dump($data['popular_stores'][0]['name']);
+      $this->load->view('front/rating', $data);
       $this->load->view('front/partials/footer');
    }
 

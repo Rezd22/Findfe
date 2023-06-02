@@ -1,7 +1,7 @@
 <div class="container p-4">
     <div class="row welcome text-center welcome">
         <div class="col-12">
-            <h1 class="display-4">Menu of <?php echo $res['name']; ?></h1>
+            <h1 class="display-4">Produk of <?php echo $res['name']; ?></h1>
         </div>
     </div>
     <div class="container res-card">
@@ -17,7 +17,10 @@
                 <a class="dropdown-item" href="<?php echo base_url() . 'chat'; ?>"><i class="fas fa-user-circle"></i> Chat With Mitra</a>
             </div>
         </div>
+        <br>
+
     </div>
+</div>
 </div>
 <div class="container p-4 kopi-card">
     <div class="row">
@@ -33,13 +36,12 @@
                                 <h4 class="text-muted"><b>Rp<?php echo $kopi['price']; ?></b></h4>
 
                             </div>
-                            <p class="card-text"><?php echo $kopi['about']; ?></p>
-                            <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Coming soon
-                                </a>
+
                         </div>
                     </div>
                 </div>
             <?php } ?>
+
         <?php } else { ?>
             <div class="jumbotron">
                 <h1>No records found</h1>

@@ -20,7 +20,7 @@ class Order_model extends CI_Model
 
     public function getUserOrder($id)
     {
-        $this->db->where('u_id', $id);
+        $this->db->where('mitra_id', $id);
         $this->db->order_by('o_id', 'DESC');
         $result = $this->db->get('user_orders')->result_array();
         return $result;
@@ -74,18 +74,18 @@ class Order_model extends CI_Model
     public function getAllOrders()
     {
         $this->db->order_by('o_id', 'DESC');
-        $this->db->select('o_id,p_name, quantity, price, status, date, username, address');
+        $this->db->select('o_id,name, quantity, price, status, username');
         $this->db->from('user_orders');
-        $this->db->join('users', 'users.u_id = user_orders.u_id');
+        $this->db->join('mitra', 'mitra.mitra_id = user_orders.mitra_id');
         $result = $this->db->get()->result_array();
         return $result;
     }
 
     public function getOrderByUser($id)
     {
-        $this->db->select('o_id, r_id, p_id, users.u_id,p_name, quantity, price, status, f_name, l_name, user_orders.date, users.email, users.phone,  success-date, username, address');
+        $this->db->select('o_id, p_id, mitra.mitra_id,name, quantity, price, status, user_orders.date, mitra.email,  success-date, username');
         $this->db->from('user_orders');
-        $this->db->join('users', 'users.u_id = user_orders.u_id');
+        $this->db->join('mitra', 'mitra.mitra_id = user_orders.mitra_id');
         $this->db->where('o_id', $id);
         $result = $this->db->get()->row_array();
         return $result;

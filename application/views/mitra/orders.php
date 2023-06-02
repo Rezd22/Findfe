@@ -29,7 +29,7 @@
                             <?php $status = $order['status'];
                             if ($status == "" or $status == "NULL" or $status == "in process" or $status == "rejected") { ?>
                                 <tr>
-                                    <td><?php echo $order['d_name']; ?></td>
+                                    <td><?php echo $order['name']; ?></td>
                                     <td><?php echo $order['quantity']; ?></td>
                                     <td><?php echo 'Rp' . $order['price']; ?></td>
                                     <?php if ($status == "" or $status == "NULL") { ?>
@@ -78,11 +78,11 @@
                                 <tr>
                                     <?php $cDate = strtotime($order['date']); ?>
                                     <td><?php echo date('d-M-Y', $cDate); ?></td>
-                                    <td><?php echo $order['d_name']; ?></td>
+                                    <td><?php echo $order['name']; ?></td>
                                     <td><?php echo $order['quantity']; ?></td>
                                     <td><?php echo 'Rp' . $order['price']; ?></td>
                                     <td> <button type="button" class="btn btn-success"><i class="fas fa-check"></i> Delivered</button>
-                                    <td><a href="<?php echo base_url() . 'orders/invoice/' . $order['o_id']; ?>" class="btn btn-info"><i class="fas fa-file-alt"></i> Invoice</a></td>
+                                    <td><a href="<?php echo base_url() . 'mitra/orders/invoice/' . $order['o_id']; ?>" class="btn btn-info"><i class="fas fa-file-alt"></i> Invoice</a></td>
                                 </tr>
                             <?php } ?>
                         <?php } ?>
@@ -99,7 +99,7 @@
 <script>
     function deleteOrder(id) {
         if (confirm("Are you sure you want to cancel this order?")) {
-            window.location.href = '<?php echo base_url() . 'orders/deleteOrder/'; ?>' + id;
+            window.location.href = '<?php echo base_url() . 'mitra/orders/deleteOrder/'; ?>' + id;
         }
     }
 </script>

@@ -22,16 +22,10 @@
                     <h3 style="color:purple"><b>FindFe</b></h3>
                 </div>
                 <div class="col-6">
-                    <p class="lead font-weight-bold mb-0"><?php echo $res['name'] ?></p>
-                    <p class="mb-0"><?php echo $res['email'] ?></p>
-                    <p><?php echo $res['address'] ?></p>
-                </div>
-                <div class="col-6">
                     <h3>INVOICE:</h3>
-                    <p class="mb-0"><?php echo $order['f_name'] . " " . $order['l_name'] ?></p>
-                    <p class="mb-0"><?php echo $order['address'] ?></p>
+
                     <p class="mb-0"><?php echo $order['email'] ?></p>
-                    <p class="mb-0"><?php echo $order['phone'] ?></p>
+
                 </div>
                 <div class="col-6">
                     <br><br>

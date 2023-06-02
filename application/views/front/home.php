@@ -106,8 +106,8 @@
                                             <h4 class="text-muted"><b>Rp<?php echo $kopi['price']; ?></b></h4>
                                         </div>
                                         <p class="card-text"><?php echo $kopi['about']; ?></p>
-                                        <a href="<?php echo base_url() . 'kopi/addToCart/' . $kopi['d_id']; ?>" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Cari Lokasi (coming soon)
-                                            </a>
+                                        <a href="<?php echo base_url() . 'kopi/list/' . $kopi['r_id']; ?>" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Toko Mitra
+                                        </a>
                                     </div>
                                 </div>
 
@@ -161,49 +161,6 @@
             <?php echo $this->session->flashdata('msg'); ?>
         </div>
     <?php endif ?>
-    <h2 class="text-center my-2 font-weight-bold">Kontak Kami</h2>
-    <p class="text-center">Selalu Di Sini Untuk Anda</p>
-    <!--Section description-->
-    <p class="text-center mx-auto mb-5"></p>
-    <form name="contact-form" action="<?php echo base_url() . 'home/sendMail'; ?>" id="myForm" method="POST">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-2">
-                    <label class="mb-0" for="name" class="">Nama lengkap*</label>
-                    <input type="text" id="name" name="name" class="form-control" required <?php set_value("name"); ?>>
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div>
-                    <label class="mb-0" for="email" class="">Email*</label>
-                    <input type="text" id="email" name="email" class="form-control" required <?php set_value("email"); ?>>
-                    <span></span>
-                </div>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="mb-2">
-                    <label class="mb-0" for="subject" class="">Subyek</label>
-                    <input type="text" id="subject" name="subject" class="form-control" <?php set_value("subject"); ?>>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="mb-2">
-                    <label class="mb-0" for="message">Pesan Anda*</label>
-                    <textarea type="text" id="message" name="message" rows="2" class="form-control" required><?php set_value("message"); ?></textarea>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <div class="status text-danger font-weight-bold my-2"></div>
-        <button class="btn btn-info" type="submit">Submit</button>
-    </form>
 
 </section>
 <script>

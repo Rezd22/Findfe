@@ -1,8 +1,9 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 class rating_model extends CI_Model
 {
@@ -63,5 +64,12 @@ class rating_model extends CI_Model
     function insert_rating($data)
     {
         $this->db->insert('rating', $data);
+    }
+    public function get_popular_products($limit = 5)
+    {
+        $this->db->order_by('rating', 'DESC');
+        $this->db->limit($limit);
+        $query = $this->db->get('toko');
+        return $query->result();
     }
 }

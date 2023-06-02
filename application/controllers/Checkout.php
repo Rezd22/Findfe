@@ -61,10 +61,9 @@ class Checkout extends CI_Controller
         $cartItems = $this->cart->contents();
         $i = 0;
         foreach ($cartItems as $item) {
-            $orderData[$i]['u_id'] = $u_Id;
-            $orderData[$i]['d_id'] = $item['id'];
-            $orderData[$i]['r_id'] = $item['r_id'];
-            $orderData[$i]['p_name'] = $item['name'];
+            $orderData[$i]['mitra_id'] = $u_Id;
+            $orderData[$i]['p_id'] = $item['id'];
+            $orderData[$i]['name'] = $item['name'];
             $orderData[$i]['quantity'] = $item['qty'];
             $orderData[$i]['price'] = $item['subtotal'];
             $orderData[$i]['date'] = date('Y-m-d H:i:s', now());

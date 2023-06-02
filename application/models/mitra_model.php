@@ -21,7 +21,7 @@ class mitra_model extends CI_Model
     public function getAllOrders()
     {
         $this->db->order_by('o_id', 'DESC');
-        $this->db->select('o_id, p_name, quantity, price, status, date, username, address');
+        $this->db->select('o_id, name, quantity, price, status, date, username, address');
         $this->db->from('user_orders');
         $this->db->join('users', 'users.u_id = user_orders.u_id');
         $result = $this->db->get()->result_array();
@@ -31,7 +31,7 @@ class mitra_model extends CI_Model
     public function getResReport()
     {
         $this->db->group_by('u.r_id');
-        $this->db->select('u.r_id, p_name, price, success-date');
+        $this->db->select('u.r_id, price, success-date');
         $this->db->select_sum('price');
         $this->db->from('user_orders as u');
         $this->db->join('toko as r', 'r.r_id = u.r_id');
@@ -41,7 +41,7 @@ class mitra_model extends CI_Model
 
     public function kopiReport()
     {
-        $query = $this->db->query('SELECT p_id, p_name, 
+        $query = $this->db->query('SELECT p_id, name, 
         SUM(quantity) AS qty
         FROM user_orders
         GROUP BY p_id
@@ -51,7 +51,7 @@ class mitra_model extends CI_Model
 
     public function mostOrderdkopies()
     {
-        $sql = 'SELECT u.r_id, r.name, u.price, u.p_name, 
+        $sql = 'SELECT u.r_id, r.name, u.price, u.name, 
         MAX(u.quantity) AS quantity, 
         SUM(price) AS total
         FROM user_orders AS u
@@ -78,5 +78,11 @@ class mitra_model extends CI_Model
     {
         $this->db->where('mitra_id', $id);
         $this->db->update('mitra', $formArray);
+    }
+    public function getSertifikat($id)
+    {
+        $this->db->where('Sertifikat', $id);
+        $mitra = $this->db->get('mitra')->row_array();
+        return $mitra;
     }
 }

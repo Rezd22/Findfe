@@ -69,7 +69,7 @@
                             Premium
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url() . 'admin/orders/'; ?>"><i class="fas fa-shopping-basket"></i> Kelola Premium</a>
+                            <a class="dropdown-item" href="<?php echo base_url() . 'admin/orders'; ?>"><i class="fas fa-shopping-basket"></i> Kelola Premium</a>
                             <a class="dropdown-item" href="<?php echo base_url() . 'admin/premium/'; ?>"><i class="fas fa-shopping-basket"></i> Kelola Premium Sales</a>
                             <a class="dropdown-item" href="<?php echo base_url() . 'admin/premium/create_premium'; ?>"><i class="fas fa-shopping-basket"></i> Buat Premium Sales</a>
                         </div>
@@ -83,7 +83,11 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="<?php echo base_url() . 'admin/profile'; ?>"><i class="fas fa-user-circle"></i> My Profile</a>
+                            <a class="dropdown-item" href="<?php echo base_url() . 'chat'; ?>"><i class="fas fa-circle"></i> Chat</a>
                         </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?php echo base_url() . 'Auth'; ?>"><i class="fas fa-star"></i> Find Mitra</a>
                     </li>
                     <li class="nav-item active">
                         <a href="<?php echo base_url() . 'admin/login/logout'; ?>" class="nav-link">Logout </a>

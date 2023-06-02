@@ -3,9 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Comment_model extends CI_Model
 {
-    public function get_ulasan()
+    public function get_ulasan($id)
     {
-        return $this->db->where('ul_id')->get('ulasan')->result_array();
+        return $this->db->where('r_id', $id)->get('ulasan')->result_array();
     }
     public function get_user()
     {
@@ -16,7 +16,7 @@ class Comment_model extends CI_Model
         return $this->db->where('ul_id', $comment_id)->get('ulasan')->result_array();
     }
 
-    public function add_comment($u_id,$r_id, $content)
+    public function add_comment($u_id, $r_id, $content)
     {
         $data = array(
 
@@ -28,7 +28,7 @@ class Comment_model extends CI_Model
         $this->db->insert('ulasan', $data);
     }
 
-    public function add_reply($u_id,$r_id, $content)
+    public function add_reply($u_id, $r_id, $content)
     {
         $data = array(
             'u_id' => $u_id,

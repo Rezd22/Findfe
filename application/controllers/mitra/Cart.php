@@ -8,15 +8,15 @@ class Cart extends CI_Controller
     {
         parent::__construct();
 
-        $user = $this->session->userdata('user');
+        $user = $this->session->userdata('mitra');
         if (empty($user)) {
             $this->session->set_flashdata('msg', 'Your session has been expired');
-            redirect(base_url() . 'login/');
+            redirect(base_url() . 'mitra/login');
         }
 
         //Load cart libraray
         $this->load->library('cart');
-        $this->load->model('premium_model');
+        $this->load->model('Premium_model');
     }
 
     public function index()
@@ -50,6 +50,6 @@ class Cart extends CI_Controller
     {
         $remove = $this->cart->remove($id);
 
-        redirect(base_url() . 'cart');
+        redirect(base_url() . 'mitra/cart');
     }
 }

@@ -48,4 +48,15 @@ class Store_model extends CI_Model
         $result = $this->db->get()->result_array();
         return $result;
     }
+    public function get_popular_stores($limit = 2)
+    {
+        $this->db->select('toko.*, AVG(rating.rating) as avg_rating');
+        $this->db->from('toko');
+        $this->db->join('rating', 'toko.r_id = rating.r_id', 'left');
+        $this->db->group_by('toko.r_id');
+        $this->db->order_by('avg_rating', 'desc');
+        $this->db->limit($limit);
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
 }

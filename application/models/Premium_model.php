@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class premium_model extends CI_Model
+class Premium_model extends CI_Model
 {
 
     public function create($formArray)
@@ -18,8 +18,8 @@ class premium_model extends CI_Model
     public function getSinglepremium($id)
     {
         $this->db->where('p_id', $id);
-        $kopi = $this->db->get('premium')->row_array();
-        return $kopi;
+        $premium = $this->db->get('premium')->row_array();
+        return $premium;
     }
     public function update($id, $formArray)
     {

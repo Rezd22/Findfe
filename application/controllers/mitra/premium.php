@@ -13,13 +13,13 @@ class premium extends CI_Controller
 
 	public function list()
 	{
-		$this->load->model('premium_model');
-		$premiums = $this->premium_model->getResInfo();
+		$this->load->model('Premium_model');
+		$premiumesh = $this->Premium_model->getResInfo();
 
 		$this->load->model('Store_model');
 		$res = $this->Store_model->getStores();
 
-		$data['premiums'] = $premiums;
+		$data['premiumesh'] = $premiumesh;
 		$data['res'] = $res;
 		$this->load->view('mitra/partials/header');
 		$this->load->view('mitra/premium/list', $data);
@@ -28,17 +28,16 @@ class premium extends CI_Controller
 
 	public function addToCart($id)
 	{
-		$this->load->model('premium_model');
-		$premium = $this->premium_model->getSinglepremium($id);
+		$this->load->model('Premium_model');
+		$premium = $this->Premium_model->getSinglepremium($id);
 		$data = array(
-			'p_id'    => $premium['p_id'],
-			'r_id'  => $premium['r_id'],
+			'id'   => $premium['p_id'],
 			'qty'   => 1,
 			'price' => $premium['price'],
-			'p_name' => $premium['p_name'],
+			'name' => $premium['name'],
 			'image' => $premium['img']
 		);
 		$this->cart->insert($data);
-		redirect(base_url() . 'cart/index');
+		redirect(base_url() . 'mitra/cart');
 	}
 }

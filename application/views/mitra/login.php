@@ -38,6 +38,8 @@
                 <button type="submit" class="btn btn-success mr-3">Login</button>
                 <a href="<?php echo base_url() . 'mitra/singup/index' ?>" class="btn btn-danger">Register</a>
             </div>
+            <br>
+            <a href="<?php echo base_url() . 'login' ?>" class="btn btn-warning">Back</a>
         </form>
     </div>
     <script>

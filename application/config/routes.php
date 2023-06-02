@@ -65,3 +65,21 @@ $route['message'] = 'Message';
 $route['logout'] = 'Message/logout';
 $route['sent'] = 'Message/sendMessage';
 $route['getmessage'] = 'Message/getMessage';
+
+//
+
+$route['serveradmin'] = 'administrator/index';
+
+$route['proseslogin'] = 'auth/ProsesLogin';
+
+$route['geo'] = 'administrator/geo';
+$route['tampil'] = 'administrator/tampil';
+$route['savedata'] = 'administrator/saveData';
+$route['editdata'] = 'administrator/editData';
+$route['hapus'] = 'administrator/hapus';
+
+$route['tampilusers'] = 'administrator/tampilUsers';
+$route['savedatausers'] = 'administrator/saveDataUsers';
+$route['editdatausers'] = 'administrator/editDataUsers';
+$route['editdatauserspass'] = 'administrator/editDataUsersPass';
+$route['hapususers'] = 'administrator/hapusUsers';

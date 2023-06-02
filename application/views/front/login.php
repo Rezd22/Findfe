@@ -54,7 +54,12 @@
                                             <div class="py-3 pb-4 border-bottom">
                                                 <button type="submit" class="btn btn-success mr-3">Login</button>
                                                 <a href="<?php echo base_url() . 'singup/index' ?>" class="btn btn-danger">Register</a>
+                                                <hr>login as<br>
+                                                <a href="<?php echo base_url() . 'mitra' ?>" class="btn btn-info">Mitra</a>
+                                                <a href="<?php echo base_url() . 'admin' ?>" class="btn btn-warning">Admin</a>
                                             </div>
+                                            <br>
+                                            <a href="<?php echo base_url() . '' ?>" class="btn btn-warning">Back</a>
                                         </form>
 
                                         <div class="d-flex justify-content-center text-center mt-4 pt-1">
@@ -62,6 +67,7 @@
                                             <a href="#!" class="text-dark"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
                                             <a href="#!" class="text-dark"><i class="fab fa-google fa-lg"></i></a>
                                         </div>
+
 
                                 </div>
                             </div>

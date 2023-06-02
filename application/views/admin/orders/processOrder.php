@@ -1,5 +1,5 @@
 <div class="container table-responsive m-t-20">
-    <h2 class="py-3 text-center">View User's Order</h2>
+    <h2 class="py-3 text-center">View Mitra's Order</h2>
     <table id="myTable" class="table table-bordered table-hover table-striped dataTable">
         <tbody>
             <tr>
@@ -7,8 +7,8 @@
                 <td><?php echo $order['username'] ?></td>
             </tr>
             <tr>
-                <td><strong>menu Item:</strong></td>
-                <td><?php echo $order['p_name'] ?></td>
+                <td><strong>Order Item:</strong></td>
+                <td><?php echo $order['name'] ?></td>
             </tr>
             <tr>
                 <td><strong>Quantity:</strong></td>
@@ -16,12 +16,12 @@
             </tr>
             <tr>
                 <td><strong>Price:</strong></td>
-                <td><?php echo "Rp" . $order['price'] ?></td>
+                <td><?php echo "$" . $order['price'] ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td><strong>Address:</strong></td>
                 <td><?php echo $order['address'] ?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td><strong>Order Date:</strong></td>
                 <td><?php echo $order['date'] ?></td>
@@ -33,7 +33,7 @@
                         <select class="form-control" name="status" class="<?php echo (form_error('status') != "") ? 'is-invalid' : ''; ?>">
                             <option>Select Status</option>
                             <option value="in process">In Process</option>
-                            <option value="closed">Closed/Paid</option>
+                            <option value="closed">Accepted</option>
                             <option value="rejected">Rejected</option>
                         </select>
                         <?php echo form_error('status'); ?>

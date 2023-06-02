@@ -19,8 +19,11 @@ class kopi extends CI_Controller
         $this->load->model('Store_model');
         $res = $this->Store_model->getStore($id);
 
+        $this->load->model('mitra_model');
+        $Sertifikat = $this->mitra_model->getSertifikat($id);
         $data['kopiesh'] = $kopiesh;
         $data['res'] = $res;
+        $data['Sertifikat'] = $Sertifikat;
         $this->load->view('front/partials/header');
         $this->load->view('front/kopi', $data);
         $this->load->view('front/partials/footer');

@@ -16,6 +16,7 @@ class Store extends CI_Controller
 
     public function index()
     {
+        $this->load->model('mitra_model');
         $this->load->model('Store_model');
         $stores = $this->Store_model->getStores();
         $store_data['stores'] = $stores;
@@ -27,6 +28,7 @@ class Store extends CI_Controller
     public function create_toko()
     {
 
+        $this->load->model('mitra_model');
         $this->load->model('Category_model');
         $cat = $this->Category_model->getCategory();
 

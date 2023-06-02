@@ -56,12 +56,12 @@
                     </li>
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
+                            Produk
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url() . 'mitra/menu/'; ?>">Kelola Menu</a>
+                            <a class="dropdown-item" href="<?php echo base_url() . 'mitra/menu/'; ?>">Kelola Produk</a>
                             <a class="dropdown-item" href="<?php echo base_url() . 'mitra/menu/create_menu'; ?>">Buat
-                                Menu</a>
+                                Produk</a>
                         </div>
                     </li>
                     <li class="nav-item">

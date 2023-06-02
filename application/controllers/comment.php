@@ -19,9 +19,10 @@ class Comment extends CI_Controller
 
     public function index($id)
     {
-        $data['ulasan'] = $this->Comment_model->get_ulasan();
+        $data['ulasan'] = $this->Comment_model->get_ulasan($id);
         $data['r_id'] = $id;
-        $this->load->view('front/partials/header');
+
+
         $this->load->view('front/comment', $data);
         $this->load->view('front/partials/footer');
     }

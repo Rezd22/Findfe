@@ -20,7 +20,7 @@ if (isset($_SESSION)) {
 	<link rel="stylesheet" href="../assets/css/message/loading-bar.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-	<title>Realtime Chat Application CI</title>
+	<title>Findfe Chat</title>
 </head>
 
 <body>
@@ -41,9 +41,9 @@ if (isset($_SESSION)) {
 					<a class="text-decoration-none" href="" id="logout" style="color:#e86663;"><i class="fa fa-power-off"></i> Logout</a>
 				</div>
 			</div>
-			<div id="search_box_container" class="py-3">
+			<!-- <div id="search_box_container" class="py-3">
 				<input type="text" name="txt_search" class="form-control" autocomplete="off" placeholder="Search User" id="search">
-			</div>
+			</div> -->
 			<hr />
 			<div id="user_list" class="py-3">
 			</div>
@@ -52,7 +52,7 @@ if (isset($_SESSION)) {
 			<div id="data_container" class="">
 				<div id="bg_image"></div>
 				<h2 class="mt-0">Hi There! Welcome To</h2>
-				<h2>Real-Time Chat Application</h2>
+				<h2>Findfe Chat Application</h2>
 				<p class="text-center my-2">Connect to your device via Internet. Remember that you <br> must have a stable Internet Connection for a<br> greater experience.</p>
 			</div>
 			<div class="chatting_section" id="chat_area" style="display: none">
