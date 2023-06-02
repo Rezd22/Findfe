@@ -51,7 +51,7 @@
             <form action="<?php echo base_url() . 'mitra/checkout'; ?>" method="POST" class="form-container  shadow-container" style="width:80%">
                 <h3 class="mt-3">Shipping Details</h3>
                 <hr>
-                <p class="lead mb-0">Cash On Delivery</p>
+                <p class="lead mb-0">Cash On</p>
                 <div class="container p-2 mb-3" style="background: #e5e5e5;">
                     Pay with Rekening BCA :
                     <br>
