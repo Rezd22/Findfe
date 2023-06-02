@@ -47,7 +47,7 @@ class Administrator extends CI_Controller
 		);
 		$this->load->view('templates/admin/header', $atas);
 		$data = array(
-			'judul' => 'Data Lahan Pertanian'
+			'judul' => 'Data Lokasi Mitra'
 
 		);
 		$this->load->view('geo', $data);
@@ -161,7 +161,7 @@ class Administrator extends CI_Controller
 		);
 		$this->load->view('templates/admin/header', $atas);
 		$data = array(
-			'judul' => 'Data users_map',
+			'judul' => 'Data',
 
 
 		);

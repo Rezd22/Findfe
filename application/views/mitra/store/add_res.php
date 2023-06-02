@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label class="control-label">Contact</label>
                     <input type="number" name="phone" id="phone" class="form-control
-                    <?php echo (form_error('phone') != "") ? 'is-invalid' : ''; ?>" placeholder="1-(555)-555-5555" value="<?php echo set_value('phone'); ?>">
+                    <?php echo (form_error('phone') != "") ? 'is-invalid' : ''; ?>" placeholder="62+" value="<?php echo set_value('phone'); ?>">
                     <?php echo form_error('phone'); ?>
                     <span></span>
                 </div>

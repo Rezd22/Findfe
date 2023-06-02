@@ -47,10 +47,10 @@
                                     <td> <button type="button" class="btn btn-secondary" style="font-weight:bold;"><i class="fas fa-bars"></i> Dispatch</button></td>
                                 <?php }
                                 if ($status == "in process") { ?>
-                                    <td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> On the way!</button></td>
+                                    <td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> Proccessing</button></td>
                                 <?php }
                                 if ($status == "closed") { ?>
-                                    <td> <button type="button" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Delivered</button>
+                                    <td> <button type="button" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Succes</button>
                                     </td> <?php } ?> <?php if ($status == "rejected") { ?>
                                     <td> <button type="button" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelled</button>
                                     </td>

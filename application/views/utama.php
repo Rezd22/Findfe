@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>APLIKASI GIS LAHAN PERTANIAN DI ACEH</title>
+    <title>APLIKASI GIS MITRA</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="Clean and responsive administration panel">
@@ -46,12 +46,12 @@
                 </div>
                 <div class="uk-navbar-right">
 
-                    <div class="uk-navbar-item">
+                    <!-- <div class="uk-navbar-item">
                         <form action="javascript:void(0)">
 
                             <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>BIODATA</a>
                         </form>
-                    </div>
+                    </div> -->
 
 
                 </div>
@@ -67,7 +67,7 @@
             var data = [
                 <?php
                 foreach ($geo as $key => $r) { ?> {
-                        "lokasi": [<?= $r->latitude?>, <?= $r->longitude ?>],
+                        "lokasi": [<?= $r->latitude ?>, <?= $r->longitude ?>],
                         "kecamatan": "<?= $r->kecamatan ?>",
                         "keterangan": "<?= $r->keterangan ?>",
                         "tempat": "<?= $r->lokasi ?>",

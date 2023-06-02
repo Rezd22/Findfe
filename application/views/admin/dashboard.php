@@ -91,7 +91,7 @@
                     </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countDeliveredOrders; ?></h2>
-                        <p class="m-b-0">Delivered Order/s</p>
+                        <p class="m-b-0">Succes Order/s</p>
                     </div>
                 </div>
             </div>

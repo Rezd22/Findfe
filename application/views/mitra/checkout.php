@@ -53,9 +53,10 @@
                 <hr>
                 <p class="lead mb-0">Cash On Delivery</p>
                 <div class="container p-2 mb-3" style="background: #e5e5e5;">
-                    Pay with Rekening BCA  
+                    Pay with Rekening BCA :
                     <br>
-                                
+                    Name : Budi Widodo
+                    Rekening : 2953-8321
                 </div>
                 <div>
                     <a href="<?php echo base_url() . 'mitra/cart'; ?>" class="btn btn-warning"><i class="fas fa-angle-left"></i>

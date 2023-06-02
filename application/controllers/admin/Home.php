@@ -32,8 +32,6 @@ class Home extends CI_Controller
         $data['countDeliveredOrders'] = $this->Order_model->countDeliveredOrders();
         $data['countRejectedOrders'] = $this->Order_model->countRejectedOrders();
 
-        $resReport = $this->admin_model->getResReport();
-        $data['resReport'] = $resReport;
 
         // $kopiReport = $this->admin_model->kopiReport();
         // $data['kopiReport'] = $kopiReport;
@@ -42,12 +40,6 @@ class Home extends CI_Controller
         $this->load->view('admin/partials/footer');
     }
 
-    public function resReport()
-    {
-        $resReport = $this->admin_model->getResReport();
-        $data['resReport'] = $resReport;
-        $this->load->view('admin/reports/res_report', $data);
-    }
 
     // public function kopiesReport()
     // {

@@ -38,8 +38,6 @@ class lihatstok extends CI_Controller
         $data['countRejectedOrders'] = $this->Order_model->countRejectedOrders();
         $data['date'] = date('Y-m-d H:i:s', now());
 
-        $resReport = $this->mitra_model->getResReport();
-        $data['resReport'] = $resReport;
 
         $kopiReport = $this->mitra_model->kopiReport();
         $data['kopiReport'] = $kopiReport;
@@ -48,19 +46,7 @@ class lihatstok extends CI_Controller
         $this->load->view('front/partials/footer');
     }
 
-    public function resReport()
-    {
-        $resReport = $this->mitra_model->getResReport();
-        $data['resReport'] = $resReport;
-        $this->load->view('front/reports/res_report', $data);
-    }
 
-    public function kopiesReport()
-    {
-        $kopiReport = $this->mitra_model->kopiReport();
-        $data['kopiReport'] = $kopiReport;
-        $this->load->view('front/reports/Store_report', $data);
-    }
 
 
 

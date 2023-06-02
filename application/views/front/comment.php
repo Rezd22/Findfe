@@ -29,29 +29,9 @@
                     <small class="text-muted"><?php echo $comment['created_at']; ?></small>
 
                     <!-- Tombol hapus komentar -->
-                    <button class="btn btn-sm btn-danger deleteComment" data-comment-id="<?php echo $comment['ul_id']; ?>">Delete</button>
 
                     <!-- Form untuk menambahkan balasan -->
-                    <form class="replyForm mt-3" action="<?php echo site_url('comment/add_reply'); ?>" method="post">
-                        <input type="hidden" name="ul_id" value="<?php echo $comment['ul_id']; ?>">
-                        <input type="hidden" name="r_id" value="<?php echo $comment["r_id"]; ?>">
-                        <div class="form-group">
-                            <label for="reply">Reply:</label>
-                            <textarea class="form-control" name="content" rows="2" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit Reply</button>
-                    </form>
 
-                    <!-- Tampilan balasan -->
-                    <?php $replies = $this->Comment_model->get_replies($comment['ul_id']); ?>
-                    <?php foreach ($replies as $reply) : ?>
-                        <div class="card mt-3 bg-light">
-                            <div class="card-body">
-                                <p class="card-text"><?php echo $reply['content']; ?></p>
-                                <small class="text-muted"><?php echo $reply['created_at']; ?></small>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
                 </div>
             </div>
         <?php endforeach; ?>

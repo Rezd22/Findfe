@@ -32,29 +32,12 @@ class Home extends CI_Controller
         $data['countDeliveredOrders'] = $this->Order_model->countDeliveredOrders();
         $data['countRejectedOrders'] = $this->Order_model->countRejectedOrders();
 
-        $resReport = $this->mitra_model->getResReport();
-        $data['resReport'] = $resReport;
 
-        $kopiReport = $this->mitra_model->kopiReport();
-        $data['kopiReport'] = $kopiReport;
         $this->load->view('mitra/partials/header');
         $this->load->view('mitra/dashboard', $data);
         $this->load->view('mitra/partials/footer');
     }
 
-    public function resReport()
-    {
-        $resReport = $this->mitra_model->getResReport();
-        $data['resReport'] = $resReport;
-        $this->load->view('mitra/reports/res_report', $data);
-    }
-
-    public function kopiesReport()
-    {
-        $kopiReport = $this->mitra_model->kopiReport();
-        $data['kopiReport'] = $kopiReport;
-        $this->load->view('mitra/reports/kopi_report', $data);
-    }
 
     public function usersReport()
     {
@@ -135,19 +118,19 @@ class Home extends CI_Controller
 
 
 
-        // $html = $this->table->generate();
-        // //Generate HTML table data from MySQL - end
+    // $html = $this->table->generate();
+    // //Generate HTML table data from MySQL - end
 
-        // // add a page
-        // $pdf->AddPage();
+    // // add a page
+    // $pdf->AddPage();
 
-        // // output the HTML content
-        // $pdf->writeHTML($html, true, false, true, false, '');
+    // // output the HTML content
+    // $pdf->writeHTML($html, true, false, true, false, '');
 
-        // // reset pointer to the last page
-        // $pdf->lastPage();
+    // // reset pointer to the last page
+    // $pdf->lastPage();
 
-        // //Close and output PDF document
-        // $pdf->Output(md5(time()) . '.pdf', 'I');
+    // //Close and output PDF document
+    // $pdf->Output(md5(time()) . '.pdf', 'I');
     // }
 }

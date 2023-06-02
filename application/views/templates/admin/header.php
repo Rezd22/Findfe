@@ -85,9 +85,9 @@
                 ?> class="uk-active" <?php
                                     } ?>><a href="<?= base_url('administrator') ?>"><span data-uk-icon="icon: home" class="uk-margin-small-right"></span>BERANDA</a></li>
 
-            <li <?php if ($menu == "biodata") {
+            <!-- <li <?php if ($menu == "biodata") {
                 ?> class="uk-active" <?php
-                                    } ?>><a href="<?= base_url('administrator/biodata') ?>"> <span data-uk-icon="icon: file-text" class="uk-margin-small-right"></span>BIODATA</a></li>
+                                    } ?>><a href="<?= base_url('administrator/biodata') ?>"> <span data-uk-icon="icon: file-text" class="uk-margin-small-right"></span>BIODATA</a></li> -->
             <?php
             if ($this->session->userdata('status') == "admin") {
             ?>

@@ -104,24 +104,14 @@
             var keterangan = data[i].keterangan;
             var kategori = data[i].kategori;
 
-            if (kategori == "kebun cabai") {
+            if (kategori == "Toko Besar Kopi") {
                 icons = banjir;
-            } else if (kategori == "sawah") {
-                icons = angin;
-            } else if (kategori == "kebun kopi") {
-                icons = tsunami;
-
-            } else if (kategori == "kebun teh") {
-                icons = gempabumi;
-
-            } else if (kategori == "kebun sawit") {
-                icons = kebakaran;
-
-            } else if (kategori == "kebun kelapa") {
-                icons = kecelakaan;
-            } else if (kategori == "kebun pisang") {
+            } else if (kategori == "Cabang Mall") {
+                icons = banjir;
+            } else if (kategori == "Kebun kopi") {
                 icons = longsor;
-            } else if (kategori == "kebun tebu") {
+
+            } else if (kategori == "Retail Cabang Kopi") {
                 icons = pohontumbang;
             }
 

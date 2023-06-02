@@ -82,7 +82,7 @@
                             <?php echo ucfirst($admin['username']); ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url() . 'admin/profile'; ?>"><i class="fas fa-user-circle"></i> My Profile</a>
+                            <!-- <a class="dropdown-item" href="<?php echo base_url() . 'admin/profile'; ?>"><i class="fas fa-user-circle"></i> My Profile</a> -->
                             <a class="dropdown-item" href="<?php echo base_url() . 'chat'; ?>"><i class="fas fa-circle"></i> Chat</a>
                         </div>
                     </li>

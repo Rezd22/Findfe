@@ -44,14 +44,14 @@
 							<label class="uk-form-label" for="form-stacked-text">Kecamatan Mitra</label>
 							<div class="uk-form-controls">
 								<input class="uk-input" id="id" name="id" type="hidden">
-								<input class="uk-input" id="kecamatan" name="kecamatan" type="text" placeholder="Kecamatan Pertanian">
+								<input class="uk-input" id="kecamatan" name="kecamatan" type="text" placeholder="Kecamatan Mitra">
 							</div>
 						</div>
 
 						<div class="uk-margin">
 							<label class="uk-form-label" for="form-stacked-text">Lokasi Pemetaan Mitra</label>
 							<div class="uk-form-controls">
-								<input class="uk-input" id="lokasi" name="lokasi" type="text" placeholder="Lokasi Pertanian">
+								<input class="uk-input" id="lokasi" name="lokasi" type="text" placeholder="Lokasi Mitra">
 							</div>
 						</div>
 
@@ -59,7 +59,7 @@
 						<div class="uk-margin">
 							<label class="uk-form-label" for="form-stacked-text">Keterangan Pemetaan</label>
 							<div class="uk-form-controls">
-								<textarea name="keterangan" id="keterangan" class="uk-textarea" placeholder="Isi Keterangan Pertanian "></textarea>
+								<textarea name="keterangan" id="keterangan" class="uk-textarea" placeholder="Isi Keterangan Mitra "></textarea>
 
 							</div>
 						</div>
@@ -67,14 +67,14 @@
 						<div class="uk-margin">
 							<label class="uk-form-label" for="form-stacked-text">Latitude Pemetaan</label>
 							<div class="uk-form-controls">
-								<input class="uk-input" id="latitude" name="latitude" type="text" placeholder="Latitude Pertanian">
+								<input class="uk-input" id="latitude" name="latitude" type="text" placeholder="Latitude Mitra">
 							</div>
 						</div>
 
 						<div class="uk-margin">
 							<label class="uk-form-label" for="form-stacked-text">Longitude Pemetaan</label>
 							<div class="uk-form-controls">
-								<input class="uk-input" id="longitude" name="longitude" type="text" placeholder="Longitude Pertanian">
+								<input class="uk-input" id="longitude" name="longitude" type="text" placeholder="Longitude Mitra">
 							</div>
 						</div>
 
@@ -86,12 +86,9 @@
 								<select class="uk-select" name="kategori" id="kategori">
 									<option value="0">-- Pilih Kategori Pemetaan --</option>
 									<option value="kebun kopi">Kebun Kopi</option>
-									<option value="kebun teh">Kebun Teh</option>
-									<option value="kebun sawit">Kebun Sawit</option>
-									<option value="kebun kelapa">Kebun Kelapa</option>
-									<option value="kebun cabai">Kebun Cabai</option>
-									<option value="kebun pisang">Kebun Pinang</option>
-									<option value="kebun tebu">Kebun Tebu</option>
+									<option value="Toko Besar Kopi">Toko Besar Kopi</option>
+									<option value="Cabang Mall">Cabang Mall</option>
+									<option value="Retail Cabang Kopi">Retail Cabang Kopi</option>
 								</select>
 							</div>
 						</div>

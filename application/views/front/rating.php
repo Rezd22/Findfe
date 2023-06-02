@@ -14,7 +14,7 @@
 
         <h3 align="center">Rating in Findfe</h3>
         <br />
-        <h1>Popular Stores</h1>
+        <h1>Most Popular Stores By Rating</h1>
         <ul>
             <?php if (!empty($popular_stores)) : ?>
                 <?php foreach ($popular_stores as $store) : ?>
@@ -29,17 +29,12 @@
         <br>
 
         <?php
-        if ($this->session->userdata('mitra') == TRUE) {
+
         ?>
-            <div>><a href="<?php echo base_url() . 'mitra'; ?>" class="btn btn-warning"><i class="fas fa-angle-left"></i>
-                    Back</a></div>
+        <div>><a href="<?php echo base_url() . 'home'; ?>" class="btn btn-warning"><i class="fas fa-angle-left"></i>
+                Back</a></div>
         <?php
-        } else {
-        ?>
-            <div>><a href="<?php echo base_url() . 'home'; ?>" class="btn btn-warning"><i class="fas fa-angle-left"></i>
-                    Back</a></div>
-        <?php
-        }
+
 
         ?>
 

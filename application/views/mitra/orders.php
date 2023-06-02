@@ -81,7 +81,7 @@
                                     <td><?php echo $order['name']; ?></td>
                                     <td><?php echo $order['quantity']; ?></td>
                                     <td><?php echo 'Rp' . $order['price']; ?></td>
-                                    <td> <button type="button" class="btn btn-success"><i class="fas fa-check"></i> Delivered</button>
+                                    <td> <button type="button" class="btn btn-success"><i class="fas fa-check"></i> Succes</button>
                                     <td><a href="<?php echo base_url() . 'mitra/orders/invoice/' . $order['o_id']; ?>" class="btn btn-info"><i class="fas fa-file-alt"></i> Invoice</a></td>
                                 </tr>
                             <?php } ?>

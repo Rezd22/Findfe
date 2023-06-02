@@ -21,7 +21,7 @@
 						<td><?= $r->username ?></td>
 						<td><?= $r->status ?></td>
 						<td>
-							<a href="#" class="uk-icon-users uk-margin-small-right" id="formedit" uk-icon="file-edit" data-id="<?= $r->idUsers_map ?>" data-nama="<?= $r->namaLengkap ?>" data-status="<?= $r->status ?>" data-username="<?= $r->username ?>"></a>
+							<!-- <a href="#" class="uk-icon-users uk-margin-small-right" id="formedit" uk-icon="file-edit" data-id="<?= $r->idUsers_map ?>" data-nama="<?= $r->namaLengkap ?>" data-status="<?= $r->status ?>" data-username="<?= $r->username ?>"></a> -->
 							<a href="#" class="uk-icon-users" uk-icon="trash" id="hapusdata" data-id="<?= $r->idUsers_map ?>" </td>
 					</tr>
 				<?php $no++;
