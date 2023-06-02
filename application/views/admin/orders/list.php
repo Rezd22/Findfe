@@ -44,7 +44,7 @@
 
                                 <?php $status = $order['status'];
                                 if ($status == "" or $status == "NULL") { ?>
-                                    <td> <button type="button" class="btn btn-secondary" style="font-weight:bold;"><i class="fas fa-bars"></i> Dispatch</button></td>
+                                    <td> <button type="button" class="btn btn-secondary" style="font-weight:bold;"><i class="fas fa-bars"></i> Waiting</button></td>
                                 <?php }
                                 if ($status == "in process") { ?>
                                     <td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin" aria-hidden="true"></span> Proccessing</button></td>

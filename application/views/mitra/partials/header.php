@@ -91,6 +91,9 @@
                         </div>
                     </li>
                     <li class="nav-item active">
+                            <a class="nav-link" href="<?php echo base_url() . 'Auth'; ?>"><i class="fas fa-star"></i> Find Mitra</a>
+                        </li>
+                    <li class="nav-item active">
                         <a href="<?php echo base_url() . 'mitra/login/logout'; ?>" class="nav-link">Logout </a>
                     </li>
                 </ul>
