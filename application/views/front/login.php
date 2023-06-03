@@ -56,7 +56,7 @@
                                                 <a href="<?php echo base_url() . 'singup/index' ?>" class="btn btn-danger">Register</a>
                                                 <hr>login as<br>
                                                 <a href="<?php echo base_url() . 'mitra' ?>" class="btn btn-info">Mitra</a>
-                                                <a href="<?php echo base_url() . 'admin' ?>" class="btn btn-warning">Admin</a>
+
                                             </div>
                                             <br>
                                             <a href="<?php echo base_url() . '' ?>" class="btn btn-warning">Back</a>
